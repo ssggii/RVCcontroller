@@ -94,5 +94,8 @@ void moveBackward(int command){
 }
 
 int main(void){
-
+    while(1){
+        // todo: take inputs from sensors
+        performActionByMode(0, 0, 0, 0);
+    }
 }
