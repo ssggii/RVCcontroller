@@ -6,7 +6,7 @@ int dustSensorInterface();
 int frontSensorInterface();
 int leftSensorInterface();
 int rightSensorInterface();
-void performActionByMode(int f, int l, int r,int mode);
+void performActionByMode(int d,int f, int l, int r,int mode);
 void performActionForward(int f, int l, int r, int mode);
 void performActionBackward(int f, int l, int r, int mode);
 void turnFirstActionFromForward(int f, int l, int r, int mode);
@@ -32,7 +32,7 @@ int main(void){
         f = obstacleLocationArray[0];
         l = obstacleLocationArray[1];
         r = obstacleLocationArray[2];
-        performActionByMode(f, l, r, mode);
+        performActionByMode(d, f, l, r, mode);
     }
 }
 
@@ -83,11 +83,11 @@ int rightSensorInterface(){ // Detect R input
     return isObstacleDetectedOnRight;
 }
 
-void performActionByMode(int f, int l, int r,int mode){
-    if (mode == 1 && f == 1){
+void performActionByMode(int d, int f, int l, int r,int mode){
+    if (mode == 1 && f == 0 && d == 1){
         powerUpCleaner();
     }
-    else if ( mode == 1){
+    else if (mode == 1){
         performActionForward(f, l, r, mode);
     }else if (mode == 0){
         performActionBackward(f, l, r, mode);
@@ -161,7 +161,7 @@ void turn(int f, int l, int r, int mode){
 }
 
 void turnLeft(){
-    printf("trigger turn left");
+    printf("trigger turn left\n");
 }
 
 void turnRight(){
