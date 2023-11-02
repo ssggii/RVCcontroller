@@ -20,11 +20,10 @@ void turnLeft();
 void turnRight();
 void moveBackward(int command);
 
-int mode;
-
 int main(void){
     int d,f,l,r;
     int obstacleLocationArray[3];
+    int mode = 1;
     while(1){
         // todo: take inputs from sensors
         d = detectDust(); // Get dust input(d)
