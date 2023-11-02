@@ -95,6 +95,8 @@ void performActionByMode(int d, int f, int l, int r,int mode){
 
 void performActionForward(int f, int l, int r, int mode){
     turnFirstActionFromForward(f, l, r, mode);
+    if (f == 1 && l == 1 && r == 1)
+        return;
     turnSecondAction();
 }
 
