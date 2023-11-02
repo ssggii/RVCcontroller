@@ -1,5 +1,52 @@
 #include <stdio.h>
 
+int detectDust(){ // Decide dust input (0 or 1)
+   int dustLevel = dustSensorInterface();
+   int isDustDetected = 0;
+   if(dustLevel > 60){
+        isDustDetected = 1;
+   }
+   return isDustDetected;
+}
+
+void detectObstacleDirection(int obstacleArray[]) {
+    obstacleArray[0] = frontSensorInterface();  // F input
+    obstacleArray[1] = leftSensorInterface();   // L input
+    obstacleArray[2] = rightSensorInterface();  // R input
+}
+
+int dustSensorInterface(){ // Detect dust level from sensor
+    int dustLevel;
+    printf("Please enter the dust level between 0 and 100: ");
+    scanf("%d", &dustLevel); // Need exception handling?
+    while (getchar() != '\n');
+    return dustLevel;
+}
+
+int frontSensorInterface(){ // Detect F input
+    int isObstacleDetectedOnFront;
+    printf("Please enter the F input(1 for true, 0 for false): ");
+    scanf("%d", &isObstacleDetectedOnFront); // Need exception handling?
+    while (getchar() != '\n');
+    return isObstacleDetectedOnFront;
+}
+
+int leftSensorInterface(){ // Detect L input
+    int isObstacleDetectedOnLeft;
+    printf("Please enter the L input(1 for true, 0 for false): ");
+    scanf("%d", &isObstacleDetectedOnLeft); // Need exception handling?
+    while (getchar() != '\n');
+    return isObstacleDetectedOnLeft;
+}
+
+int rightSensorInterface(){ // Detect R input
+    int isObstacleDetectedOnRight;
+    printf("Please enter the R input(1 for true, 0 for false): ");
+    scanf("%d", &isObstacleDetectedOnRight); // Need exception handling?
+    while (getchar() != '\n');
+    return isObstacleDetectedOnRight;
+}
+
 void performActionByMode(int f, int l, int r,int mode){
     if (mode == 1 && f == 1){
         powerUpCleaner();
@@ -96,6 +143,13 @@ void moveBackward(int command){
 int main(void){
     while(1){
         // todo: take inputs from sensors
+        int d,f,l,r;
+        int obstacleLocationArray[3];
+        d = detectDust(); // Get dust input(d)
+        detectObstacleDirection(obstacleLocationArray); // Get obstacle direction inputs(f,l,r) 
+        f = obstacleLocationArray[0];
+        l = obstacleLocationArray[1];
+        r = obstacleLocationArray[2];
         performActionByMode(0, 0, 0, 0);
     }
 }
