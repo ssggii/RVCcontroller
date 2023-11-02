@@ -83,10 +83,13 @@ int rightSensorInterface(){ // Detect R input
 }
 
 void performActionByMode(int d, int f, int l, int r,int mode){
-    if (mode == 1 && f == 0 && d == 1){
-        powerUpCleaner();
-    }
-    else if (mode == 1){
+    if (mode == 1 && f == 0){
+        if (d == 1){
+            powerUpCleaner();
+        }else{
+            printf("\n");
+        }
+    }else if (mode == 1){
         performActionForward(f, l, r, mode);
     }else if (mode == 0){
         performActionBackward(f, l, r, mode);
