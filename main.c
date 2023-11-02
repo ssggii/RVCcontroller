@@ -13,7 +13,7 @@ void turnFirstActionFromForward(int f, int l, int r, int mode);
 void turnFirstActionFromBackward(int f, int l, int r, int mode);
 void turnSecondAction();
 void moveForward(int command);
-void cleanerSwtich(int command);
+void cleanerSwitch(int command);
 void powerUpCleaner();
 void turn(int f, int l, int r, int mode);
 void turnLeft();
@@ -107,7 +107,7 @@ void performActionBackward(int f, int l, int r, int mode){
 
 void turnFirstActionFromForward(int f, int l, int r, int mode){
     moveForward(0);
-    cleanerSwtich(0);
+    cleanerSwitch(0);
     turn(f, l, r, mode);
 }
 
@@ -118,7 +118,7 @@ void turnFirstActionFromBackward(int f, int l, int r, int mode){
 
 void turnSecondAction(){
     moveForward(1);
-    cleanerSwtich(1);
+    cleanerSwitch(1);
 }
 
 void moveForward(int command){
@@ -129,7 +129,7 @@ void moveForward(int command){
     }
 }
 
-void cleanerSwtich(int command){
+void cleanerSwitch(int command){
     if (command == 1){ // turn on
         printf("turn on cleaner\n");
     }else if (command == 0){ // turn off
@@ -165,7 +165,7 @@ void turnLeft(){
 }
 
 void turnRight(){
-    print("trigger turn right\n");
+    printf("trigger turn right\n");
 }
 
 void moveBackward(int command){
