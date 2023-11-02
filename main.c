@@ -1,5 +1,41 @@
 #include <stdio.h>
 
+int detectDust();
+void detectObstacleDirection(int obstacleArray[]);
+int dustSensorInterface();
+int frontSensorInterface();
+int leftSensorInterface();
+int rightSensorInterface();
+void performActionByMode(int f, int l, int r,int mode);
+void performActionForward(int f, int l, int r, int mode);
+void performActionBackward(int f, int l, int r, int mode);
+void turnFirstActionFromForward(int f, int l, int r, int mode);
+void turnFirstActionFromBackward(int f, int l, int r, int mode);
+void turnSecondAction();
+void moveForward(int command);
+void cleanerSwtich(int command);
+void powerUpCleaner();
+void turn(int f, int l, int r, int mode);
+void turnLeft();
+void turnRight();
+void moveBackward(int command);
+
+int mode;
+
+int main(void){
+    int d,f,l,r;
+    int obstacleLocationArray[3];
+    while(1){
+        // todo: take inputs from sensors
+        d = detectDust(); // Get dust input(d)
+        detectObstacleDirection(obstacleLocationArray); // Get obstacle direction inputs(f,l,r) 
+        f = obstacleLocationArray[0];
+        l = obstacleLocationArray[1];
+        r = obstacleLocationArray[2];
+        performActionByMode(f, l, r, mode);
+    }
+}
+
 int detectDust(){ // Decide dust input (0 or 1)
    int dustLevel = dustSensorInterface();
    int isDustDetected = 0;
@@ -140,16 +176,3 @@ void moveBackward(int command){
     }
 }
 
-int main(void){
-    while(1){
-        // todo: take inputs from sensors
-        int d,f,l,r;
-        int obstacleLocationArray[3];
-        d = detectDust(); // Get dust input(d)
-        detectObstacleDirection(obstacleLocationArray); // Get obstacle direction inputs(f,l,r) 
-        f = obstacleLocationArray[0];
-        l = obstacleLocationArray[1];
-        r = obstacleLocationArray[2];
-        performActionByMode(0, 0, 0, 0);
-    }
-}
