@@ -6,7 +6,7 @@ int dustSensorInterface();
 int frontSensorInterface();
 int leftSensorInterface();
 int rightSensorInterface();
-void performActionByMode(int d,int f, int l, int r,int mode);
+int performActionByMode(int d,int f, int l, int r,int mode);
 void performActionForward(int f, int l, int r, int mode);
 void performActionBackward(int f, int l, int r, int mode);
 void turnFirstActionFromForward(int f, int l, int r, int mode);
@@ -25,13 +25,12 @@ int main(void){
     int obstacleLocationArray[3];
     int mode = 1;
     while(1){
-        // todo: take inputs from sensors
         d = detectDust(); // Get dust input(d)
         detectObstacleDirection(obstacleLocationArray); // Get obstacle direction inputs(f,l,r) 
         f = obstacleLocationArray[0];
         l = obstacleLocationArray[1];
         r = obstacleLocationArray[2];
-        performActionByMode(d, f, l, r, mode);
+        mode = performActionByMode(d, f, l, r, mode);
     }
 }
 
@@ -82,17 +81,21 @@ int rightSensorInterface(){ // Detect R input
     return isObstacleDetectedOnRight;
 }
 
-void performActionByMode(int d, int f, int l, int r,int mode){
+int performActionByMode(int d, int f, int l, int r,int mode){
     if (mode == 1 && f == 0){
         if (d == 1){
             powerUpCleaner();
         }else{
             printf("\n");
         }
+        return 1;
     }else if (mode == 1){
         performActionForward(f, l, r, mode);
+        if (f == 1 && l == 1 && r == 1)
+            return 0;
     }else if (mode == 0){
         performActionBackward(f, l, r, mode);
+        return 1;
     }
 }
 
@@ -116,7 +119,6 @@ void turnFirstActionFromForward(int f, int l, int r, int mode){
 }
 
 void turnFirstActionFromBackward(int f, int l, int r, int mode){
-    moveBackward(0);
     turn(f, l, r, mode);
 }
 
@@ -155,12 +157,12 @@ void turn(int f, int l, int r, int mode){
             moveBackward(1);
         }
     }else if (mode == 0){
+        moveBackward(0);
         if (!l){
             turnLeft();
         }else if (l && !r){
             turnRight();
         }
-        moveBackward(0);
     }
 }
 
