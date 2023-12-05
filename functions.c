@@ -21,7 +21,7 @@ void detectObstacleDirection(int obstacleArray[]) {
 int dustSensorInterface(){ // Detect dust level from sensor
     int dustLevel;
     srand(time(NULL));
-    dustLevel = rand() % 100 + 1; // range from 1 to 100
+    dustLevel = rand() % 101; // range from 0 to 100
     return dustLevel;
 }
 
