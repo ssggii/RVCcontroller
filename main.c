@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "main.h"
 
 int main(void){
@@ -6,7 +8,8 @@ int main(void){
     int obstacleLocationArray[3];
     int mode = 1;
     while(1){
-        d = detectDust(); // Get dust input(d)
+        int dustInput = dustSensorInterface();
+        d = detectDust(dustInput); // Decide if dust detected (d)
         detectObstacleDirection(obstacleLocationArray); // Get obstacle direction inputs(f,l,r) 
         f = obstacleLocationArray[0];
         l = obstacleLocationArray[1];
@@ -15,8 +18,8 @@ int main(void){
     }
 }
 
-int detectDust(){ // Decide dust input (0 or 1)
-   int dustLevel = dustSensorInterface();
+int detectDust(int dustInput){ 
+   int dustLevel = dustInput;
    int isDustDetected = 0;
    if(dustLevel > 60){
         isDustDetected = 1;
@@ -32,9 +35,8 @@ void detectObstacleDirection(int obstacleArray[]) {
 
 int dustSensorInterface(){ // Detect dust level from sensor
     int dustLevel;
-    printf("Please enter the dust level between 0 and 100: ");
-    scanf("%d", &dustLevel);
-    while (getchar() != '\n');
+    srand(time(NULL));
+    dustLevel = rand() % 100 + 1; // range from 1 to 100
     return dustLevel;
 }
 
