@@ -34,10 +34,10 @@ void detectObstacleDirection(int obstacleArray[]) {
 }
 
 int dustSensorInterface(){ // Detect dust level from sensor
-    int dustLevel;
+    int dustInput;
     srand(time(NULL));
-    dustLevel = rand() % 100 + 1; // range from 1 to 100
-    return dustLevel;
+    dustInput = rand() % 100 + 1; // range from 1 to 100
+    return dustInput;
 }
 
 int frontSensorInterface(){ // Detect F input
