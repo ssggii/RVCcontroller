@@ -34,33 +34,30 @@ void detectObstacleDirection(int obstacleArray[]) {
 }
 
 int dustSensorInterface(){ // Detect dust level from sensor
-    int dustInput;
+    int dustLevel;
     srand(time(NULL));
-    dustInput = rand() % 100 + 1; // range from 1 to 100
-    return dustInput;
+    dustLevel = rand() % 101; // range from 0 to 100
+    return dustLevel;
 }
 
 int frontSensorInterface(){ // Detect F input
     int isObstacleDetectedOnFront;
-    printf("Please enter the F input(1 for true, 0 for false): ");
-    scanf("%d", &isObstacleDetectedOnFront);
-    while (getchar() != '\n');
+    srand(time(NULL));
+    isObstacleDetectedOnFront = rand() % 2;
     return isObstacleDetectedOnFront;
 }
 
 int leftSensorInterface(){ // Detect L input
     int isObstacleDetectedOnLeft;
-    printf("Please enter the L input(1 for true, 0 for false): ");
-    scanf("%d", &isObstacleDetectedOnLeft);
-    while (getchar() != '\n');
+    srand(time(NULL));
+    isObstacleDetectedOnLeft = rand() % 2;
     return isObstacleDetectedOnLeft;
 }
 
 int rightSensorInterface(){ // Detect R input
     int isObstacleDetectedOnRight;
-    printf("Please enter the R input(1 for true, 0 for false): ");
-    scanf("%d", &isObstacleDetectedOnRight);
-    while (getchar() != '\n');
+    srand(time(NULL));
+    isObstacleDetectedOnRight = rand() % 2;
     return isObstacleDetectedOnRight;
 }
 
