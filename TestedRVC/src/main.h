@@ -1,3 +1,6 @@
+#ifndef _MAIN_H_
+#define _MAIN_H_
+
 int detectDust();
 void detectObstacleDirection(int obstacleArray[]);
 int dustSensorInterface();
@@ -17,3 +20,5 @@ void turn(int f, int l, int r, int mode);
 void turnLeft();
 void turnRight();
 void moveBackward(int command);
+
+#endif // MAIN_H_

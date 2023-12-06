@@ -3,6 +3,23 @@
 #include <time.h>
 #include "main.h"
 
+
+#ifndef TEST
+int main(void){
+    int d,f,l,r;
+    int obstacleLocationArray[3];
+    int mode = 1;
+    while(1){
+        int dustInput = dustSensorInterface();
+        d = detectDust(dustInput); // Decide if dust detected (d)
+        detectObstacleDirection(obstacleLocationArray); // Get obstacle direction inputs(f,l,r) 
+        f = obstacleLocationArray[0];
+        l = obstacleLocationArray[1];
+        r = obstacleLocationArray[2];
+        mode = performActionByMode(d, f, l, r, mode);
+    }
+}
+
 int detectDust(int dustInput){ 
    int dustLevel = dustInput;
    int isDustDetected = 0;
@@ -146,3 +163,4 @@ void moveBackward(int command){
         printf("disable move backward\n");
     }
 }
+#endif
