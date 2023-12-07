@@ -2,7 +2,15 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
-#include "main.h"
+
+#include "cleanerAction.h"
+#include "detectObstacleDirection.h"
+#include "obstacleSensorInterface.h"
+#include "performAction.h"
+#include "motorAction.h"
+#include "performActionByMode.h"
+#include "turn.h"
+#include "turnFirstOrSecondAction.h"
 
 int main(void){
     int d,f,l,r;
@@ -20,6 +28,7 @@ int main(void){
     }
 }
 
+/*
 int detectDust(int dustInput){ 
    int dustLevel = dustInput;
    int isDustDetected = 0;
@@ -173,4 +182,4 @@ char* moveBackward(int command){
     return log;
 }
 
-
+*/

@@ -1,11 +1,12 @@
 #include "performActionByMode.h"
 #include "performAction.h"
 #include "cleanerAction.h"
+#include <stdio.h>
 
 int performActionByMode(int d, int f, int l, int r, int mode){
     if (mode == 1 && f == 0){
         if (d == 1){
-            powerUpCleaner();
+            printf("%s", powerUpCleaner());
         }else{
             printf("\n");
         }
