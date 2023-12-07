@@ -11,7 +11,7 @@ void tearDown(void)
 {
 }
 
-void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void)
+void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void) // f,l,r input을 int[] 배열로 저장하면 PASS
 {
     // Arrange
     int obstacleInputArray[3] = {0};
