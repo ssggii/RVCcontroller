@@ -1,4 +1,4 @@
-void turnLeft();
-void turnRight();
-void moveForward(int command);
-void moveBackward(int command);
+char* turnLeft();
+char* turnRight();
+char* moveForward(int command);
+char* moveBackward(int command);

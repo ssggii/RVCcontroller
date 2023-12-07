@@ -2,13 +2,37 @@
 :source:
   :path: test
   :file: test_motorAction.c
-:successes: []
+:successes:
+- :test: test_turnLeft_triggered_ReturnCorrectLog
+  :line: 12
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turnRight_triggered_ReturnCorrectLog
+  :line: 26
+  :message: ''
+  :unity_test_time: 0
+- :test: test_moveForward_command1_ReturnEnableLog
+  :line: 40
+  :message: ''
+  :unity_test_time: 0
+- :test: test_moveForward_command0_ReturnDisableLog
+  :line: 55
+  :message: ''
+  :unity_test_time: 0
+- :test: test_moveBackward_command1_ReturnEnableLog
+  :line: 70
+  :message: ''
+  :unity_test_time: 0
+- :test: test_moveBackward_command0_ReturnDisableLog
+  :line: 85
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 0
-  :passed: 0
+  :total: 6
+  :passed: 6
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.002004621999731171
+:time: 0.0011740709996956866

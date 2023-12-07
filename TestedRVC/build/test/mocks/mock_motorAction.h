@@ -24,43 +24,43 @@ void mock_motorAction_Verify(void);
 
 
 
-#define turnLeft_Ignore() turnLeft_CMockIgnore()
-void turnLeft_CMockIgnore(void);
+#define turnLeft_IgnoreAndReturn(cmock_retval) turnLeft_CMockIgnoreAndReturn(__LINE__, cmock_retval)
+void turnLeft_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
 #define turnLeft_StopIgnore() turnLeft_CMockStopIgnore()
 void turnLeft_CMockStopIgnore(void);
-#define turnLeft_Expect() turnLeft_CMockExpect(__LINE__)
-void turnLeft_CMockExpect(UNITY_LINE_TYPE cmock_line);
-typedef void (* CMOCK_turnLeft_CALLBACK)(int cmock_num_calls);
+#define turnLeft_ExpectAndReturn(cmock_retval) turnLeft_CMockExpectAndReturn(__LINE__, cmock_retval)
+void turnLeft_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
+typedef char* (* CMOCK_turnLeft_CALLBACK)(int cmock_num_calls);
 void turnLeft_AddCallback(CMOCK_turnLeft_CALLBACK Callback);
 void turnLeft_Stub(CMOCK_turnLeft_CALLBACK Callback);
 #define turnLeft_StubWithCallback turnLeft_Stub
-#define turnRight_Ignore() turnRight_CMockIgnore()
-void turnRight_CMockIgnore(void);
+#define turnRight_IgnoreAndReturn(cmock_retval) turnRight_CMockIgnoreAndReturn(__LINE__, cmock_retval)
+void turnRight_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
 #define turnRight_StopIgnore() turnRight_CMockStopIgnore()
 void turnRight_CMockStopIgnore(void);
-#define turnRight_Expect() turnRight_CMockExpect(__LINE__)
-void turnRight_CMockExpect(UNITY_LINE_TYPE cmock_line);
-typedef void (* CMOCK_turnRight_CALLBACK)(int cmock_num_calls);
+#define turnRight_ExpectAndReturn(cmock_retval) turnRight_CMockExpectAndReturn(__LINE__, cmock_retval)
+void turnRight_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
+typedef char* (* CMOCK_turnRight_CALLBACK)(int cmock_num_calls);
 void turnRight_AddCallback(CMOCK_turnRight_CALLBACK Callback);
 void turnRight_Stub(CMOCK_turnRight_CALLBACK Callback);
 #define turnRight_StubWithCallback turnRight_Stub
-#define moveForward_Ignore() moveForward_CMockIgnore()
-void moveForward_CMockIgnore(void);
+#define moveForward_IgnoreAndReturn(cmock_retval) moveForward_CMockIgnoreAndReturn(__LINE__, cmock_retval)
+void moveForward_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
 #define moveForward_StopIgnore() moveForward_CMockStopIgnore()
 void moveForward_CMockStopIgnore(void);
-#define moveForward_Expect(command) moveForward_CMockExpect(__LINE__, command)
-void moveForward_CMockExpect(UNITY_LINE_TYPE cmock_line, int command);
-typedef void (* CMOCK_moveForward_CALLBACK)(int command, int cmock_num_calls);
+#define moveForward_ExpectAndReturn(command, cmock_retval) moveForward_CMockExpectAndReturn(__LINE__, command, cmock_retval)
+void moveForward_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int command, char* cmock_to_return);
+typedef char* (* CMOCK_moveForward_CALLBACK)(int command, int cmock_num_calls);
 void moveForward_AddCallback(CMOCK_moveForward_CALLBACK Callback);
 void moveForward_Stub(CMOCK_moveForward_CALLBACK Callback);
 #define moveForward_StubWithCallback moveForward_Stub
-#define moveBackward_Ignore() moveBackward_CMockIgnore()
-void moveBackward_CMockIgnore(void);
+#define moveBackward_IgnoreAndReturn(cmock_retval) moveBackward_CMockIgnoreAndReturn(__LINE__, cmock_retval)
+void moveBackward_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
 #define moveBackward_StopIgnore() moveBackward_CMockStopIgnore()
 void moveBackward_CMockStopIgnore(void);
-#define moveBackward_Expect(command) moveBackward_CMockExpect(__LINE__, command)
-void moveBackward_CMockExpect(UNITY_LINE_TYPE cmock_line, int command);
-typedef void (* CMOCK_moveBackward_CALLBACK)(int command, int cmock_num_calls);
+#define moveBackward_ExpectAndReturn(command, cmock_retval) moveBackward_CMockExpectAndReturn(__LINE__, command, cmock_retval)
+void moveBackward_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int command, char* cmock_to_return);
+typedef char* (* CMOCK_moveBackward_CALLBACK)(int command, int cmock_num_calls);
 void moveBackward_AddCallback(CMOCK_moveBackward_CALLBACK Callback);
 void moveBackward_Stub(CMOCK_moveBackward_CALLBACK Callback);
 #define moveBackward_StubWithCallback moveBackward_Stub

@@ -31,3 +31,5 @@ build/test/mocks/mock_turn.c:
 - TEST
 src/turnFirstOrSecondAction.c:
 - TEST
+src/motorAction.c:
+- TEST

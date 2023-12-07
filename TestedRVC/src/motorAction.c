@@ -1,25 +1,32 @@
 #include "motorAction.h"
+#include <stdio.h>
 
-void turnLeft(){
-    printf("trigger turn left\n");
+char* turnLeft(){
+    char* log = "trigger turn left\n";
+    return log;
 }
 
-void turnRight(){
-    printf("trigger turn right\n");
+char* turnRight(){
+    char* log = "trigger turn right\n";
+    return log;
 }
 
-void moveForward(int command){
+char* moveForward(int command){
+    char* log;
     if (command == 1){ //enable
-        printf("enable move forward\n");
+        log = "enable move forward\n";
     }else if (command == 0){ //disable
-        printf("disable move forward\n");
-    }
+        log = "disable move forward\n";
+    } 
+    return log;
 }
 
-void moveBackward(int command){
+char* moveBackward(int command){
+    char* log;
     if (command == 1){ //enable
-        printf("enable move backward\n");
+        log = "enable move backward\n";
     }else if (command == 0){ //disable
-        printf("disable move backward\n");
+        log = "disable move backward\n";
     }
+    return log;
 }
