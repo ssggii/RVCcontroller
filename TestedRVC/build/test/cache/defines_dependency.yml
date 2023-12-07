@@ -15,3 +15,19 @@ build/test/mocks/mock_obstacleSensorInterface.c:
 - TEST
 src/detectObstacleDirection.c:
 - TEST
+build/test/mocks/mock_motorAction.c:
+- TEST
+src/turn.c:
+- TEST
+src/cleanerAction.c:
+- TEST
+build/test/mocks/mock_turnFirstOrSecondAction.c:
+- TEST
+src/performAction.c:
+- TEST
+build/test/mocks/mock_cleanerAction.c:
+- TEST
+build/test/mocks/mock_turn.c:
+- TEST
+src/turnFirstOrSecondAction.c:
+- TEST
