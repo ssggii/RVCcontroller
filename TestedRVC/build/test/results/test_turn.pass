@@ -1,0 +1,70 @@
+---
+:source:
+  :path: test
+  :file: test_turn.c
+:successes:
+- :test: test_turn_1001_turnLeft
+  :line: 14
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_1011_turnLeft
+  :line: 28
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_1101_turnRight
+  :line: 42
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_1111_moveBackward
+  :line: 56
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_0000_moveBackward
+  :line: 71
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_0010_moveBackward
+  :line: 88
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_1000_moveBackward
+  :line: 105
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_1010_moveBackward
+  :line: 122
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_0100_turnRight
+  :line: 139
+  :message: ''
+  :unity_test_time: 0
+- :test: test_turn_1100_turnRight
+  :line: 156
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 10
+  :passed: 10
+  :failed: 0
+  :ignored: 0
+:stdout:
+- trigger turn left
+- trigger turn left
+- trigger turn right
+- enable move backward
+- disable move backward
+- trigger turn left
+- disable move backward
+- trigger turn left
+- disable move backward
+- trigger turn left
+- disable move backward
+- trigger turn left
+- disable move backward
+- trigger turn right
+- disable move backward
+- trigger turn right
+:time: 0.001656374000958749

@@ -18,9 +18,10 @@ void test_turn_1001_turnLeft(void)
     int l = 0;
     int r = 0;
     int mode = 1;
+    char* log = "trigger turn left\n";
 
     // Act, Assert
-    turnLeft_Expect();
+    turnLeft_ExpectAndReturn(log);
     turn(f, l, r, mode);
 }
 
@@ -31,9 +32,10 @@ void test_turn_1011_turnLeft(void)
     int l = 0;
     int r = 1;
     int mode = 1;
+    char* log = "trigger turn left\n";
 
     // Act, Assert
-    turnLeft_Expect();
+    turnLeft_ExpectAndReturn(log);
     turn(f, l, r, mode);
 }
 
@@ -44,9 +46,10 @@ void test_turn_1101_turnRight(void)
     int l = 1;
     int r = 0;
     int mode = 1;
+    char* log = "trigger turn right\n";
 
     // Act, Assert
-    turnRight_Expect();
+    turnRight_ExpectAndReturn(log);
     turn(f, l, r, mode);
 }
 
@@ -58,9 +61,10 @@ void test_turn_1111_moveBackward(void)
     int r = 1;
     int mode = 1;
     int command = 1;
+    char* log = "enable move backward\n";
 
     // Act, Assert
-    moveBackward_Expect(command);
+    moveBackward_ExpectAndReturn(command, log);
     turn(f, l, r, mode);
 }
 
@@ -72,10 +76,12 @@ void test_turn_0000_moveBackward(void)
     int r = 0;
     int mode = 0;
     int command = 0;
+    char* log1 = "disable move backward\n";
+    char* log2 = "trigger turn left\n";
 
     // Act, Assert
-    moveBackward_Expect(command);
-    turnLeft_Expect();
+    moveBackward_ExpectAndReturn(command, log1);
+    turnLeft_ExpectAndReturn(log2);
     turn(f, l, r, mode);
 }
 
@@ -87,10 +93,12 @@ void test_turn_0010_moveBackward(void)
     int r = 1;
     int mode = 0;
     int command = 0;
+    char* log1 = "disable move backward\n";
+    char* log2 = "trigger turn left\n";
 
     // Act, Assert
-    moveBackward_Expect(command);
-    turnLeft_Expect();
+    moveBackward_ExpectAndReturn(command, log1);
+    turnLeft_ExpectAndReturn(log2);
     turn(f, l, r, mode);
 }
 
@@ -102,10 +110,12 @@ void test_turn_1000_moveBackward(void)
     int r = 0;
     int mode = 0;
     int command = 0;
+    char* log1 = "disable move backward\n";
+    char* log2 = "trigger turn left\n";
 
     // Act, Assert
-    moveBackward_Expect(command);
-    turnLeft_Expect();
+    moveBackward_ExpectAndReturn(command, log1);
+    turnLeft_ExpectAndReturn(log2);
     turn(f, l, r, mode);
 }
 
@@ -117,10 +127,12 @@ void test_turn_1010_moveBackward(void)
     int r = 1;
     int mode = 0;
     int command = 0;
+    char* log1 = "disable move backward\n";
+    char* log2 = "trigger turn left\n";
 
     // Act, Assert
-    moveBackward_Expect(command);
-    turnLeft_Expect();
+    moveBackward_ExpectAndReturn(command, log1);
+    turnLeft_ExpectAndReturn(log2);
     turn(f, l, r, mode);
 }
 
@@ -132,10 +144,12 @@ void test_turn_0100_turnRight(void)
     int r = 0;
     int mode = 0;
     int command = 0;
+    char* log1 = "disable move backward\n";
+    char* log2 = "trigger turn right\n";
 
     // Act, Assert
-    moveBackward_Expect(command);
-    turnRight_Expect();
+    moveBackward_ExpectAndReturn(command, log1);
+    turnRight_ExpectAndReturn(log2);
     turn(f, l, r, mode);
 }
 
@@ -147,9 +161,11 @@ void test_turn_1100_turnRight(void)
     int r = 0;
     int mode = 0;
     int command = 0;
+    char* log1 = "disable move backward\n";
+    char* log2 = "trigger turn right\n";
 
     // Act, Assert
-    moveBackward_Expect(command);
-    turnRight_Expect();
+    moveBackward_ExpectAndReturn(command, log1);
+    turnRight_ExpectAndReturn(log2);
     turn(f, l, r, mode);
 }

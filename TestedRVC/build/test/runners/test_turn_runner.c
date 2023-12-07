@@ -90,15 +90,15 @@ int main(void)
 {
   UnityBegin("test_turn.c");
   run_test(test_turn_1001_turnLeft, "test_turn_1001_turnLeft", 14);
-  run_test(test_turn_1011_turnLeft, "test_turn_1011_turnLeft", 27);
-  run_test(test_turn_1101_turnRight, "test_turn_1101_turnRight", 40);
-  run_test(test_turn_1111_moveBackward, "test_turn_1111_moveBackward", 53);
-  run_test(test_turn_0000_moveBackward, "test_turn_0000_moveBackward", 67);
-  run_test(test_turn_0010_moveBackward, "test_turn_0010_moveBackward", 82);
-  run_test(test_turn_1000_moveBackward, "test_turn_1000_moveBackward", 97);
-  run_test(test_turn_1010_moveBackward, "test_turn_1010_moveBackward", 112);
-  run_test(test_turn_0100_turnRight, "test_turn_0100_turnRight", 127);
-  run_test(test_turn_1100_turnRight, "test_turn_1100_turnRight", 142);
+  run_test(test_turn_1011_turnLeft, "test_turn_1011_turnLeft", 28);
+  run_test(test_turn_1101_turnRight, "test_turn_1101_turnRight", 42);
+  run_test(test_turn_1111_moveBackward, "test_turn_1111_moveBackward", 56);
+  run_test(test_turn_0000_moveBackward, "test_turn_0000_moveBackward", 71);
+  run_test(test_turn_0010_moveBackward, "test_turn_0010_moveBackward", 88);
+  run_test(test_turn_1000_moveBackward, "test_turn_1000_moveBackward", 105);
+  run_test(test_turn_1010_moveBackward, "test_turn_1010_moveBackward", 122);
+  run_test(test_turn_0100_turnRight, "test_turn_0100_turnRight", 139);
+  run_test(test_turn_1100_turnRight, "test_turn_1100_turnRight", 156);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();
