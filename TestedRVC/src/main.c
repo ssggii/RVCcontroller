@@ -23,6 +23,7 @@ int main(void){
         f = obstacleLocationArray[0];
         l = obstacleLocationArray[1];
         r = obstacleLocationArray[2];
+        printf("d, f, l, r, mode: %d, %d, %d, %d, %d\n", d, f, l, r, mode);
         mode = performActionByMode(d, f, l, r, mode);
         sleep(3);
     }
