@@ -1,0 +1,42 @@
+---
+:source:
+  :path: test
+  :file: test_obstacleSensors.c
+:successes: []
+:failures:
+- :test: test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse
+  :line: 19
+  :message: Function detectDust.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_detectDust_DustLevelGreaterThan60_ReturnTrue
+  :line: 35
+  :message: Function detectDust.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_dustSensorInterface_Default_ReturnCorrectRangeInput
+  :line: 51
+  :message: Function dustSensorInterface.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_frontSensorInterface_Default_ReturnCorrectRangeInput
+  :line: 61
+  :message: Function frontSensorInterface.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_leftSensorInterface_Default_ReturnCorrectRangeInput
+  :line: 71
+  :message: Function leftSensorInterface.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_rightSensorInterface_Default_ReturnCorrectRangeInput
+  :line: 81
+  :message: Function rightSensorInterface.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_detectObstacleDirection_Default_SaveObstacleInputsToArray
+  :line: 91
+  :message: Function detectObstacleDirection.  Called more times than expected.
+  :unity_test_time: 0
+:ignores: []
+:counts:
+  :total: 7
+  :passed: 0
+  :failed: 7
+  :ignored: 0
+:stdout: []
+:time: 0.0018423390001771622

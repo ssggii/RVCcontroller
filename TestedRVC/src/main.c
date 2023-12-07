@@ -3,7 +3,6 @@
 #include <time.h>
 #include "main.h"
 
-#ifndef TEST
 int main(void){
     int d,f,l,r;
     int obstacleLocationArray[3];
@@ -18,7 +17,6 @@ int main(void){
         mode = performActionByMode(d, f, l, r, mode);
     }
 }
-#endif
 
 int detectDust(int dustInput){ 
    int dustLevel = dustInput;

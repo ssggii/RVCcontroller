@@ -1,5 +1,5 @@
 #include "unity.h"
-#include "main.h"
+#include "obstacleSensorInterface.h"
 
 int d,f,l,r;
 
@@ -86,4 +86,3 @@ void test_rightSensorInterface_Default_ReturnCorrectRangeInput(void) // 우측 �
     TEST_ASSERT_LESS_OR_EQUAL_UINT(1, r);
 
 }
-

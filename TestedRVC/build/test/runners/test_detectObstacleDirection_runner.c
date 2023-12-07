@@ -3,7 +3,7 @@
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
 #include "cmock.h"
-#include "mock_main.h"
+#include "mock_obstacleSensorInterface.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -12,12 +12,6 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse(void);
-extern void test_detectDust_DustLevelGreaterThan60_ReturnTrue(void);
-extern void test_dustSensorInterface_Default_ReturnCorrectRangeInput(void);
-extern void test_frontSensorInterface_Default_ReturnCorrectRangeInput(void);
-extern void test_leftSensorInterface_Default_ReturnCorrectRangeInput(void);
-extern void test_rightSensorInterface_Default_ReturnCorrectRangeInput(void);
 extern void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void);
 
 
@@ -27,15 +21,15 @@ static void CMock_Init(void)
   GlobalExpectCount = 0;
   GlobalVerifyOrder = 0;
   GlobalOrderError = NULL;
-  mock_main_Init();
+  mock_obstacleSensorInterface_Init();
 }
 static void CMock_Verify(void)
 {
-  mock_main_Verify();
+  mock_obstacleSensorInterface_Verify();
 }
 static void CMock_Destroy(void)
 {
-  mock_main_Destroy();
+  mock_obstacleSensorInterface_Destroy();
 }
 
 /*=======Test Reset Options=====*/
@@ -85,14 +79,8 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 /*=======MAIN=====*/
 int main(void)
 {
-  UnityBegin("test_main.c");
-  run_test(test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse, "test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse", 19);
-  run_test(test_detectDust_DustLevelGreaterThan60_ReturnTrue, "test_detectDust_DustLevelGreaterThan60_ReturnTrue", 35);
-  run_test(test_dustSensorInterface_Default_ReturnCorrectRangeInput, "test_dustSensorInterface_Default_ReturnCorrectRangeInput", 51);
-  run_test(test_frontSensorInterface_Default_ReturnCorrectRangeInput, "test_frontSensorInterface_Default_ReturnCorrectRangeInput", 61);
-  run_test(test_leftSensorInterface_Default_ReturnCorrectRangeInput, "test_leftSensorInterface_Default_ReturnCorrectRangeInput", 71);
-  run_test(test_rightSensorInterface_Default_ReturnCorrectRangeInput, "test_rightSensorInterface_Default_ReturnCorrectRangeInput", 81);
-  run_test(test_detectObstacleDirection_Default_SaveObstacleInputsToArray, "test_detectObstacleDirection_Default_SaveObstacleInputsToArray", 91);
+  UnityBegin("test_detectObstacleDirection.c");
+  run_test(test_detectObstacleDirection_Default_SaveObstacleInputsToArray, "test_detectObstacleDirection_Default_SaveObstacleInputsToArray", 14);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();

@@ -3,3 +3,15 @@ src/main.c:
 - TEST
 build/test/mocks/mock_main.c:
 - TEST
+build/test/mocks/mock_sensors.c:
+- TEST
+src/obstacleSensors.c:
+- TEST
+build/test/mocks/mock_obstacleSensors.c:
+- TEST
+src/obstacleSensorInterface.c:
+- TEST
+build/test/mocks/mock_obstacleSensorInterface.c:
+- TEST
+src/detectObstacleDirection.c:
+- TEST

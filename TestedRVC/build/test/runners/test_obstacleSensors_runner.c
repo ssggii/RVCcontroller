@@ -3,7 +3,7 @@
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
 #include "cmock.h"
-#include "mock_main.h"
+#include "mock_obstacleSensors.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -27,15 +27,15 @@ static void CMock_Init(void)
   GlobalExpectCount = 0;
   GlobalVerifyOrder = 0;
   GlobalOrderError = NULL;
-  mock_main_Init();
+  mock_obstacleSensors_Init();
 }
 static void CMock_Verify(void)
 {
-  mock_main_Verify();
+  mock_obstacleSensors_Verify();
 }
 static void CMock_Destroy(void)
 {
-  mock_main_Destroy();
+  mock_obstacleSensors_Destroy();
 }
 
 /*=======Test Reset Options=====*/
@@ -85,7 +85,7 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 /*=======MAIN=====*/
 int main(void)
 {
-  UnityBegin("test_main.c");
+  UnityBegin("test_obstacleSensors.c");
   run_test(test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse, "test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse", 19);
   run_test(test_detectDust_DustLevelGreaterThan60_ReturnTrue, "test_detectDust_DustLevelGreaterThan60_ReturnTrue", 35);
   run_test(test_dustSensorInterface_Default_ReturnCorrectRangeInput, "test_dustSensorInterface_Default_ReturnCorrectRangeInput", 51);

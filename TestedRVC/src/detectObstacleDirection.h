@@ -1,0 +1,1 @@
+void detectObstacleDirection(int obstacleArray[]);

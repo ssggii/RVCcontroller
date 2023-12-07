@@ -1,4 +1,4 @@
-#include "build/test/mocks/mock_main.h"
+#include "src/obstacleSensorInterface.h"
 #include "/var/lib/gems/2.7.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
 
 
@@ -56,13 +56,13 @@ void test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(29), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((result2)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(31), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -96,13 +96,13 @@ void test_detectDust_DustLevelGreaterThan60_ReturnTrue(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(45), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((result2)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -126,7 +126,7 @@ void test_dustSensorInterface_Default_ReturnCorrectRangeInput(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(57), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -150,7 +150,7 @@ void test_frontSensorInterface_Default_ReturnCorrectRangeInput(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(67), UNITY_DISPLAY_STYLE_UINT);
+   ), (UNITY_UINT)(66), UNITY_DISPLAY_STYLE_UINT);
 
 
 
@@ -174,7 +174,7 @@ void test_leftSensorInterface_Default_ReturnCorrectRangeInput(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(77), UNITY_DISPLAY_STYLE_UINT);
+   ), (UNITY_UINT)(76), UNITY_DISPLAY_STYLE_UINT);
 
 
 
@@ -198,63 +198,7 @@ void test_rightSensorInterface_Default_ReturnCorrectRangeInput(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(87), UNITY_DISPLAY_STYLE_UINT);
-
-
-
-}
-
-
-
-void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void)
-
-{
-
-
-
-    int obstacleInputArray[3] = {0};
-
-    int frontSensorInput = 1;
-
-    int leftSensorInput = 1;
-
-    int rightSensorInput = 1;
-
-
-
-
-
-    frontSensorInterface_CMockExpectAndReturn(100, frontSensorInput);
-
-    leftSensorInterface_CMockExpectAndReturn(101, leftSensorInput);
-
-    rightSensorInterface_CMockExpectAndReturn(102, rightSensorInput);
-
-
-
-    detectObstacleDirection(obstacleInputArray);
-
-
-
-
-
-    UnityAssertEqualNumber((UNITY_INT)((frontSensorInput)), (UNITY_INT)((obstacleInputArray[0])), (
-
-   ((void *)0)
-
-   ), (UNITY_UINT)(107), UNITY_DISPLAY_STYLE_INT);
-
-    UnityAssertEqualNumber((UNITY_INT)((leftSensorInput)), (UNITY_INT)((obstacleInputArray[1])), (
-
-   ((void *)0)
-
-   ), (UNITY_UINT)(108), UNITY_DISPLAY_STYLE_INT);
-
-    UnityAssertEqualNumber((UNITY_INT)((rightSensorInput)), (UNITY_INT)((obstacleInputArray[2])), (
-
-   ((void *)0)
-
-   ), (UNITY_UINT)(109), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_UINT);
 
 
 
