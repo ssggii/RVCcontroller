@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 #include "main.h"
 
 int main(void){
@@ -15,6 +16,7 @@ int main(void){
         l = obstacleLocationArray[1];
         r = obstacleLocationArray[2];
         mode = performActionByMode(d, f, l, r, mode);
+        sleep(3);
     }
 }
 
@@ -64,7 +66,7 @@ int rightSensorInterface(){ // Detect R input
 int performActionByMode(int d, int f, int l, int r, int mode){
     if (mode == 1 && f == 0){
         if (d == 1){
-            powerUpCleaner();
+            printf("%s", powerUpCleaner());
         }else{
             printf("\n");
         }
@@ -93,8 +95,8 @@ void performActionBackward(int f, int l, int r, int mode){
 
 
 void turnFirstActionFromForward(int f, int l, int r, int mode){
-    moveForward(0);
-    cleanerSwitch(0);
+    printf("%s", moveForward(0));
+    printf("%s", cleanerSwitch(0));
     turn(f, l, r, mode);
 }
 
@@ -103,62 +105,72 @@ void turnFirstActionFromBackward(int f, int l, int r, int mode){
 }
 
 void turnSecondAction(){
-    moveForward(1);
-    cleanerSwitch(1);
+    printf("%s", moveForward(1));
+    printf("%s", cleanerSwitch(1));
 }
 
-void moveForward(int command){
-    if (command == 1){ //enable
-        printf("enable move forward\n");
-    }else if (command == 0){ //disable
-        printf("disable move forward\n");
-    }
-}
-
-void cleanerSwitch(int command){
+char* cleanerSwitch(int command){
+    char* log;
     if (command == 1){ // turn on
-        printf("turn on cleaner\n");
+        log = "turn on cleaner\n";
     }else if (command == 0){ // turn off
-        printf("turn off cleaner\n");
+        log = "turn off cleaner\n";
     }
+    return log;
 }
 
-void powerUpCleaner(){
-    printf("power up cleaner\n");
+char* powerUpCleaner(){
+    char* log = "power up cleaner\n";
+    return log;
 }
 
 void turn(int f, int l, int r, int mode){
     if (mode == 1){
         if (f && !l){
-            turnLeft();
+            printf("%s", turnLeft());
         }else if (f && l && !r){
-            turnRight();
+            printf("%s", turnRight());
         }else if (f && l && r){
-            moveBackward(1);
+            printf("%s", moveBackward(1));
         }
     }else if (mode == 0){
-        moveBackward(0);
+        printf("%s", moveBackward(0));
         if (!l){
-            turnLeft();
+            printf("%s", turnLeft());
         }else if (l && !r){
-            turnRight();
+            printf("%s", turnRight());
         }
     }
 }
 
-void turnLeft(){
-    printf("trigger turn left\n");
+char* turnLeft(){
+    char* log = "trigger turn left\n";
+    return log;
 }
 
-void turnRight(){
-    printf("trigger turn right\n");
+char* turnRight(){
+    char* log = "trigger turn right\n";
+    return log;
 }
 
-void moveBackward(int command){
+char* moveForward(int command){
+    char* log;
     if (command == 1){ //enable
-        printf("enable move backward\n");
+        log = "enable move forward\n";
     }else if (command == 0){ //disable
-        printf("disable move backward\n");
-    }
+        log = "disable move forward\n";
+    } 
+    return log;
 }
+
+char* moveBackward(int command){
+    char* log;
+    if (command == 1){ //enable
+        log = "enable move backward\n";
+    } else if (command == 0){ //disable
+        log = "disable move backward\n";
+    }
+    return log;
+}
+
 

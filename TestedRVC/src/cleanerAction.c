@@ -1,13 +1,16 @@
 #include "cleanerAction.h"
 
-void cleanerSwitch(int command){
+char* cleanerSwitch(int command){
+    char* log;
     if (command == 1){ // turn on
-        printf("turn on cleaner\n");
+        log = "turn on cleaner\n";
     }else if (command == 0){ // turn off
-        printf("turn off cleaner\n");
+        log = "turn off cleaner\n";
     }
+    return log;
 }
 
-void powerUpCleaner(){
-    printf("power up cleaner\n");
+char* powerUpCleaner(){
+    char* log = "power up cleaner\n";
+    return log;
 }

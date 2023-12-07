@@ -1,2 +1,2 @@
-void cleanerSwitch(int command);
-void powerUpCleaner();
+char* cleanerSwitch(int command);
+char* powerUpCleaner();
