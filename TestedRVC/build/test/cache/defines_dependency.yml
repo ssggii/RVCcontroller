@@ -1,0 +1,5 @@
+---
+src/main.c:
+- TEST
+build/test/mocks/mock_main.c:
+- TEST

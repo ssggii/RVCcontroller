@@ -1,0 +1,38 @@
+---
+:source:
+  :path: test
+  :file: test_main.c
+:successes:
+- :test: test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse
+  :line: 18
+  :message: ''
+  :unity_test_time: 0
+- :test: test_detectDust_DustLevelGreaterThan60_ReturnTrue
+  :line: 34
+  :message: ''
+  :unity_test_time: 0
+- :test: test_dustSensorInterface_Default_ReturnCorrectRangeInput
+  :line: 50
+  :message: ''
+  :unity_test_time: 0
+- :test: test_frontSensorInterface_Default_ReturnCorrectRangeInput
+  :line: 60
+  :message: ''
+  :unity_test_time: 0
+- :test: test_leftSensorInterface_Default_ReturnCorrectRangeInput
+  :line: 70
+  :message: ''
+  :unity_test_time: 0
+- :test: test_rightSensorInterface_Default_ReturnCorrectRangeInput
+  :line: 80
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 6
+  :passed: 6
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.0033582529999875987

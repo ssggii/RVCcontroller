@@ -9,10 +9,13 @@ void setUp(void)
 
 void tearDown(void)
 {
+    d = 0;
+    f = 0;
+    l = 0;
+    r = 0;
 }
 
-
-void detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse(void) // dustLevel이 60 이하일 때 False(0) 반환하면 PASS
+void test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse(void) // dustLevel이 60 이하일 때 False(0) 반환하면 PASS
 {
     // Arrange
     int dustLevel1 = 40;
@@ -28,7 +31,7 @@ void detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse(void) // dustLevel이 60
 
 }
 
-void detectDust_DustLevelGreaterThan60_ReturnTrue(void) // dustLevel이 60 초과일 때 True(1) 반환하면 PASS
+void test_detectDust_DustLevelGreaterThan60_ReturnTrue(void) // dustLevel이 60 초과일 때 True(1) 반환하면 PASS
 {
     // Arrange
     int dustLevel1 = 70;
@@ -44,7 +47,7 @@ void detectDust_DustLevelGreaterThan60_ReturnTrue(void) // dustLevel이 60 초�
     
 }
 
-void dustSensorInterface_Default_ReturnCorrectRangeInput(void) // 먼지 흡입량(input)이 0~100 범위에 있으면 PASS
+void test_dustSensorInterface_Default_ReturnCorrectRangeInput(void) // 먼지 흡입량(input)이 0~100 범위에 있으면 PASS
 {
     // Arrange, Act
     int dustInput = dustSensorInterface();
@@ -54,7 +57,7 @@ void dustSensorInterface_Default_ReturnCorrectRangeInput(void) // 먼지 흡입�
 
 }
 
-void frontSensorInterface_Default_ReturnCorrectRangeInput(void) // 전방 장애물 센서 input이 0 또는 1이면 PASS
+void test_frontSensorInterface_Default_ReturnCorrectRangeInput(void) // 전방 장애물 센서 input이 0 또는 1이면 PASS
 {
     // Arrange, Act
     f = frontSensorInterface();
@@ -64,7 +67,7 @@ void frontSensorInterface_Default_ReturnCorrectRangeInput(void) // 전방 장애
 
 }
 
-void leftSensorInterface_Default_ReturnCorrectRangeInput(void) // 좌측 장애물 센서 input이 0 또는 1이면 PASS
+void test_leftSensorInterface_Default_ReturnCorrectRangeInput(void) // 좌측 장애물 센서 input이 0 또는 1이면 PASS
 {
     // Arrange, Act
     l = leftSensorInterface();
@@ -74,7 +77,7 @@ void leftSensorInterface_Default_ReturnCorrectRangeInput(void) // 좌측 장애�
 
 }
 
-void rightSensorInterface_Default_ReturnCorrectRangeInput(void) // 우측 장애물 센서 input이 0 또는 1이면 PASS
+void test_rightSensorInterface_Default_ReturnCorrectRangeInput(void) // 우측 장애물 센서 input이 0 또는 1이면 PASS
 {
     // Arrange, Act
     r = rightSensorInterface();

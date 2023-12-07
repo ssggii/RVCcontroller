@@ -3,7 +3,6 @@
 #include <time.h>
 #include "main.h"
 
-
 #ifndef TEST
 int main(void){
     int d,f,l,r;
@@ -19,6 +18,7 @@ int main(void){
         mode = performActionByMode(d, f, l, r, mode);
     }
 }
+#endif
 
 int detectDust(int dustInput){ 
    int dustLevel = dustInput;
@@ -163,4 +163,4 @@ void moveBackward(int command){
         printf("disable move backward\n");
     }
 }
-#endif
+
