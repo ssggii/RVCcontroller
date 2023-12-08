@@ -4,7 +4,7 @@
   :file: test_detectObstacleDirection.c
 :successes:
 - :test: test_detectObstacleDirection_Default_SaveObstacleInputsToArray
-  :line: 14
+  :line: 16
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -15,4 +15,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0022971359994699014
+:time: 0.0020911430001433473

@@ -2,13 +2,25 @@
 #include "/var/lib/gems/2.7.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
 
 
-int d,f,l,r;
+
+
+
+
+int d, f, l, r;
+
+unsigned int seed;
 
 
 
 void setUp(void)
 
 {
+
+    seed = time(
+
+               ((void *)0)
+
+                   );
 
 }
 
@@ -26,13 +38,15 @@ void tearDown(void)
 
     r = 0;
 
+
+
 }
 
 
 
-void test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse(void)
 
-{
+
+void test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse(void) {
 
 
 
@@ -56,23 +70,21 @@ void test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(29), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(35), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((result2)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_INT);
-
-
+   ), (UNITY_UINT)(36), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_detectDust_DustLevelGreaterThan60_ReturnTrue(void)
 
-{
+
+void test_detectDust_DustLevelGreaterThan60_ReturnTrue(void) {
 
 
 
@@ -96,27 +108,25 @@ void test_detectDust_DustLevelGreaterThan60_ReturnTrue(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(45), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(50), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((result2)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
-
-
+   ), (UNITY_UINT)(51), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_dustSensorInterface_Default_ReturnCorrectRangeInput(void)
-
-{
 
 
+void test_dustSensorInterface_Default_ReturnCorrectRangeInput(void) {
 
-    int dustInput = dustSensorInterface();
+
+
+    int dustInput = dustSensorInterface(&seed);
 
 
 
@@ -126,21 +136,19 @@ void test_dustSensorInterface_Default_ReturnCorrectRangeInput(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_INT);
-
-
+   ), (UNITY_UINT)(60), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_frontSensorInterface_Default_ReturnCorrectRangeInput(void)
-
-{
 
 
+void test_frontSensorInterface_Default_ReturnCorrectRangeInput(void) {
 
-    f = frontSensorInterface();
+
+
+    f = frontSensorInterface(&seed);
 
 
 
@@ -150,21 +158,19 @@ void test_frontSensorInterface_Default_ReturnCorrectRangeInput(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(66), UNITY_DISPLAY_STYLE_UINT);
-
-
+   ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_UINT);
 
 }
 
 
 
-void test_leftSensorInterface_Default_ReturnCorrectRangeInput(void)
-
-{
 
 
+void test_leftSensorInterface_Default_ReturnCorrectRangeInput(void) {
 
-    l = leftSensorInterface();
+
+
+    l = leftSensorInterface(&seed);
 
 
 
@@ -174,21 +180,19 @@ void test_leftSensorInterface_Default_ReturnCorrectRangeInput(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(76), UNITY_DISPLAY_STYLE_UINT);
-
-
+   ), (UNITY_UINT)(78), UNITY_DISPLAY_STYLE_UINT);
 
 }
 
 
 
-void test_rightSensorInterface_Default_ReturnCorrectRangeInput(void)
-
-{
 
 
+void test_rightSensorInterface_Default_ReturnCorrectRangeInput(void) {
 
-    r = rightSensorInterface();
+
+
+    r = rightSensorInterface(&seed);
 
 
 
@@ -198,8 +202,6 @@ void test_rightSensorInterface_Default_ReturnCorrectRangeInput(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_UINT);
-
-
+   ), (UNITY_UINT)(87), UNITY_DISPLAY_STYLE_UINT);
 
 }

@@ -4,43 +4,43 @@
   :file: test_turn.c
 :successes:
 - :test: test_turn_1001_turnLeft
-  :line: 14
+  :line: 13
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_1011_turnLeft
-  :line: 28
+  :line: 26
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_1101_turnRight
-  :line: 42
+  :line: 39
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_1111_moveBackward
-  :line: 56
+  :line: 52
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_0000_moveBackward
-  :line: 71
+  :line: 66
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_0010_moveBackward
-  :line: 88
+  :line: 82
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_1000_moveBackward
-  :line: 105
+  :line: 98
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_1010_moveBackward
-  :line: 122
+  :line: 114
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_0100_turnRight
-  :line: 139
+  :line: 130
   :message: ''
   :unity_test_time: 0
 - :test: test_turn_1100_turnRight
-  :line: 156
+  :line: 146
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -67,4 +67,4 @@
 - trigger turn right
 - disable move backward
 - trigger turn right
-:time: 0.0014546779993906966
+:time: 0.0022391570018953644

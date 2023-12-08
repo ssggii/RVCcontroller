@@ -104,7 +104,6 @@
 :test_runner:
   :includes: []
   :file_suffix: _runner
-  :cmdline_args: true
 :tools:
   :test_compiler:
     :executable: gcc

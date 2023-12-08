@@ -80,12 +80,12 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_obstacleSensorInterface.c");
-  run_test(test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse, "test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse", 18);
-  run_test(test_detectDust_DustLevelGreaterThan60_ReturnTrue, "test_detectDust_DustLevelGreaterThan60_ReturnTrue", 34);
-  run_test(test_dustSensorInterface_Default_ReturnCorrectRangeInput, "test_dustSensorInterface_Default_ReturnCorrectRangeInput", 50);
-  run_test(test_frontSensorInterface_Default_ReturnCorrectRangeInput, "test_frontSensorInterface_Default_ReturnCorrectRangeInput", 60);
-  run_test(test_leftSensorInterface_Default_ReturnCorrectRangeInput, "test_leftSensorInterface_Default_ReturnCorrectRangeInput", 70);
-  run_test(test_rightSensorInterface_Default_ReturnCorrectRangeInput, "test_rightSensorInterface_Default_ReturnCorrectRangeInput", 80);
+  run_test(test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse, "test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse", 25);
+  run_test(test_detectDust_DustLevelGreaterThan60_ReturnTrue, "test_detectDust_DustLevelGreaterThan60_ReturnTrue", 40);
+  run_test(test_dustSensorInterface_Default_ReturnCorrectRangeInput, "test_dustSensorInterface_Default_ReturnCorrectRangeInput", 55);
+  run_test(test_frontSensorInterface_Default_ReturnCorrectRangeInput, "test_frontSensorInterface_Default_ReturnCorrectRangeInput", 64);
+  run_test(test_leftSensorInterface_Default_ReturnCorrectRangeInput, "test_leftSensorInterface_Default_ReturnCorrectRangeInput", 73);
+  run_test(test_rightSensorInterface_Default_ReturnCorrectRangeInput, "test_rightSensorInterface_Default_ReturnCorrectRangeInput", 82);
 
   return UnityEnd();
 }

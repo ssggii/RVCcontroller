@@ -5,25 +5,21 @@
 
 
 
-void setUp(void)
-
-{
-
-}
 
 
-
-void tearDown(void)
-
-{
+void setUp(void) {
 
 }
 
 
 
-void test_turn_1001_turnLeft(void)
+void tearDown(void) {
 
-{
+}
+
+
+
+void test_turn_1001_turnLeft(void) {
 
 
 
@@ -41,7 +37,7 @@ void test_turn_1001_turnLeft(void)
 
 
 
-    turnLeft_CMockExpectAndReturn(24, log);
+    turnLeft_CMockExpectAndReturn(22, log);
 
     turn(f, l, r, mode);
 
@@ -49,9 +45,7 @@ void test_turn_1001_turnLeft(void)
 
 
 
-void test_turn_1011_turnLeft(void)
-
-{
+void test_turn_1011_turnLeft(void) {
 
 
 
@@ -69,7 +63,7 @@ void test_turn_1011_turnLeft(void)
 
 
 
-    turnLeft_CMockExpectAndReturn(38, log);
+    turnLeft_CMockExpectAndReturn(35, log);
 
     turn(f, l, r, mode);
 
@@ -77,9 +71,7 @@ void test_turn_1011_turnLeft(void)
 
 
 
-void test_turn_1101_turnRight(void)
-
-{
+void test_turn_1101_turnRight(void) {
 
 
 
@@ -97,7 +89,7 @@ void test_turn_1101_turnRight(void)
 
 
 
-    turnRight_CMockExpectAndReturn(52, log);
+    turnRight_CMockExpectAndReturn(48, log);
 
     turn(f, l, r, mode);
 
@@ -105,9 +97,7 @@ void test_turn_1101_turnRight(void)
 
 
 
-void test_turn_1111_moveBackward(void)
-
-{
+void test_turn_1111_moveBackward(void) {
 
 
 
@@ -127,7 +117,7 @@ void test_turn_1111_moveBackward(void)
 
 
 
-    moveBackward_CMockExpectAndReturn(67, command, log);
+    moveBackward_CMockExpectAndReturn(62, command, log);
 
     turn(f, l, r, mode);
 
@@ -135,9 +125,7 @@ void test_turn_1111_moveBackward(void)
 
 
 
-void test_turn_0000_moveBackward(void)
-
-{
+void test_turn_0000_moveBackward(void) {
 
 
 
@@ -159,9 +147,9 @@ void test_turn_0000_moveBackward(void)
 
 
 
-    moveBackward_CMockExpectAndReturn(83, command, log1);
+    moveBackward_CMockExpectAndReturn(77, command, log1);
 
-    turnLeft_CMockExpectAndReturn(84, log2);
+    turnLeft_CMockExpectAndReturn(78, log2);
 
     turn(f, l, r, mode);
 
@@ -169,9 +157,7 @@ void test_turn_0000_moveBackward(void)
 
 
 
-void test_turn_0010_moveBackward(void)
-
-{
+void test_turn_0010_moveBackward(void) {
 
 
 
@@ -193,9 +179,9 @@ void test_turn_0010_moveBackward(void)
 
 
 
-    moveBackward_CMockExpectAndReturn(100, command, log1);
+    moveBackward_CMockExpectAndReturn(93, command, log1);
 
-    turnLeft_CMockExpectAndReturn(101, log2);
+    turnLeft_CMockExpectAndReturn(94, log2);
 
     turn(f, l, r, mode);
 
@@ -203,9 +189,7 @@ void test_turn_0010_moveBackward(void)
 
 
 
-void test_turn_1000_moveBackward(void)
-
-{
+void test_turn_1000_moveBackward(void) {
 
 
 
@@ -227,9 +211,9 @@ void test_turn_1000_moveBackward(void)
 
 
 
-    moveBackward_CMockExpectAndReturn(117, command, log1);
+    moveBackward_CMockExpectAndReturn(109, command, log1);
 
-    turnLeft_CMockExpectAndReturn(118, log2);
+    turnLeft_CMockExpectAndReturn(110, log2);
 
     turn(f, l, r, mode);
 
@@ -237,9 +221,7 @@ void test_turn_1000_moveBackward(void)
 
 
 
-void test_turn_1010_moveBackward(void)
-
-{
+void test_turn_1010_moveBackward(void) {
 
 
 
@@ -261,9 +243,9 @@ void test_turn_1010_moveBackward(void)
 
 
 
-    moveBackward_CMockExpectAndReturn(134, command, log1);
+    moveBackward_CMockExpectAndReturn(125, command, log1);
 
-    turnLeft_CMockExpectAndReturn(135, log2);
+    turnLeft_CMockExpectAndReturn(126, log2);
 
     turn(f, l, r, mode);
 
@@ -271,9 +253,7 @@ void test_turn_1010_moveBackward(void)
 
 
 
-void test_turn_0100_turnRight(void)
-
-{
+void test_turn_0100_turnRight(void) {
 
 
 
@@ -295,9 +275,9 @@ void test_turn_0100_turnRight(void)
 
 
 
-    moveBackward_CMockExpectAndReturn(151, command, log1);
+    moveBackward_CMockExpectAndReturn(141, command, log1);
 
-    turnRight_CMockExpectAndReturn(152, log2);
+    turnRight_CMockExpectAndReturn(142, log2);
 
     turn(f, l, r, mode);
 
@@ -305,9 +285,7 @@ void test_turn_0100_turnRight(void)
 
 
 
-void test_turn_1100_turnRight(void)
-
-{
+void test_turn_1100_turnRight(void) {
 
 
 
@@ -329,9 +307,9 @@ void test_turn_1100_turnRight(void)
 
 
 
-    moveBackward_CMockExpectAndReturn(168, command, log1);
+    moveBackward_CMockExpectAndReturn(157, command, log1);
 
-    turnRight_CMockExpectAndReturn(169, log2);
+    turnRight_CMockExpectAndReturn(158, log2);
 
     turn(f, l, r, mode);
 

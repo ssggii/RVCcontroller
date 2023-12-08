@@ -24,9 +24,6 @@
 #  :output: MyApp.out
 #  :use_assembly: FALSE
 
-:test_runner:
-  :cmdline_args: true
-
 :environment:
 
 :extension:

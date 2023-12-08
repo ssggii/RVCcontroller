@@ -4,27 +4,27 @@
   :file: test_obstacleSensorInterface.c
 :successes:
 - :test: test_detectDust_DustLevelLessThanOrEqulTo60_ReturnFalse
-  :line: 18
+  :line: 25
   :message: ''
   :unity_test_time: 0
 - :test: test_detectDust_DustLevelGreaterThan60_ReturnTrue
-  :line: 34
+  :line: 40
   :message: ''
   :unity_test_time: 0
 - :test: test_dustSensorInterface_Default_ReturnCorrectRangeInput
-  :line: 50
+  :line: 55
   :message: ''
   :unity_test_time: 0
 - :test: test_frontSensorInterface_Default_ReturnCorrectRangeInput
-  :line: 60
+  :line: 64
   :message: ''
   :unity_test_time: 0
 - :test: test_leftSensorInterface_Default_ReturnCorrectRangeInput
-  :line: 70
+  :line: 73
   :message: ''
   :unity_test_time: 0
 - :test: test_rightSensorInterface_Default_ReturnCorrectRangeInput
-  :line: 80
+  :line: 82
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -35,4 +35,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.001652021000154491
+:time: 0.002128943000570871

@@ -89,16 +89,16 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_turn.c");
-  run_test(test_turn_1001_turnLeft, "test_turn_1001_turnLeft", 14);
-  run_test(test_turn_1011_turnLeft, "test_turn_1011_turnLeft", 28);
-  run_test(test_turn_1101_turnRight, "test_turn_1101_turnRight", 42);
-  run_test(test_turn_1111_moveBackward, "test_turn_1111_moveBackward", 56);
-  run_test(test_turn_0000_moveBackward, "test_turn_0000_moveBackward", 71);
-  run_test(test_turn_0010_moveBackward, "test_turn_0010_moveBackward", 88);
-  run_test(test_turn_1000_moveBackward, "test_turn_1000_moveBackward", 105);
-  run_test(test_turn_1010_moveBackward, "test_turn_1010_moveBackward", 122);
-  run_test(test_turn_0100_turnRight, "test_turn_0100_turnRight", 139);
-  run_test(test_turn_1100_turnRight, "test_turn_1100_turnRight", 156);
+  run_test(test_turn_1001_turnLeft, "test_turn_1001_turnLeft", 13);
+  run_test(test_turn_1011_turnLeft, "test_turn_1011_turnLeft", 26);
+  run_test(test_turn_1101_turnRight, "test_turn_1101_turnRight", 39);
+  run_test(test_turn_1111_moveBackward, "test_turn_1111_moveBackward", 52);
+  run_test(test_turn_0000_moveBackward, "test_turn_0000_moveBackward", 66);
+  run_test(test_turn_0010_moveBackward, "test_turn_0010_moveBackward", 82);
+  run_test(test_turn_1000_moveBackward, "test_turn_1000_moveBackward", 98);
+  run_test(test_turn_1010_moveBackward, "test_turn_1010_moveBackward", 114);
+  run_test(test_turn_0100_turnRight, "test_turn_0100_turnRight", 130);
+  run_test(test_turn_1100_turnRight, "test_turn_1100_turnRight", 146);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();

@@ -80,7 +80,7 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_detectObstacleDirection.c");
-  run_test(test_detectObstacleDirection_Default_SaveObstacleInputsToArray, "test_detectObstacleDirection_Default_SaveObstacleInputsToArray", 14);
+  run_test(test_detectObstacleDirection_Default_SaveObstacleInputsToArray, "test_detectObstacleDirection_Default_SaveObstacleInputsToArray", 16);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();

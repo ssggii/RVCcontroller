@@ -5,27 +5,33 @@
 
 
 
-void setUp(void)
-
-{
-
-}
 
 
-
-void tearDown(void)
-
-{
+void setUp(void) {
 
 }
 
 
 
-void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void)
+void tearDown(void) {
 
-{
+}
 
 
+
+
+
+void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void) {
+
+
+
+    unsigned int *seed;
+
+    *seed = time(
+
+                ((void *)0)
+
+                    );
 
     int obstacleInputArray[3] = {0};
 
@@ -39,15 +45,17 @@ void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void)
 
 
 
-    frontSensorInterface_CMockExpectAndReturn(23, frontSensorInput);
-
-    leftSensorInterface_CMockExpectAndReturn(24, leftSensorInput);
-
-    rightSensorInterface_CMockExpectAndReturn(25, rightSensorInput);
 
 
+    frontSensorInterface_CMockExpectAndReturn(27, seed, frontSensorInput);
 
-    detectObstacleDirection(obstacleInputArray);
+    leftSensorInterface_CMockExpectAndReturn(28, seed, leftSensorInput);
+
+    rightSensorInterface_CMockExpectAndReturn(29, seed, rightSensorInput);
+
+
+
+    detectObstacleDirection(obstacleInputArray, seed);
 
 
 
@@ -57,20 +65,18 @@ void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(34), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((leftSensorInput)), (UNITY_INT)((obstacleInputArray[1])), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(31), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(35), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((rightSensorInput)), (UNITY_INT)((obstacleInputArray[2])), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(32), UNITY_DISPLAY_STYLE_INT);
-
-
+   ), (UNITY_UINT)(36), UNITY_DISPLAY_STYLE_INT);
 
 }

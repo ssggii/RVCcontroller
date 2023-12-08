@@ -8,23 +8,23 @@
   :message: ''
   :unity_test_time: 0
 - :test: test_turnRight_triggered_ReturnCorrectLog
-  :line: 26
+  :line: 25
   :message: ''
   :unity_test_time: 0
 - :test: test_moveForward_command1_ReturnEnableLog
-  :line: 40
+  :line: 38
   :message: ''
   :unity_test_time: 0
 - :test: test_moveForward_command0_ReturnDisableLog
-  :line: 55
+  :line: 52
   :message: ''
   :unity_test_time: 0
 - :test: test_moveBackward_command1_ReturnEnableLog
-  :line: 70
+  :line: 66
   :message: ''
   :unity_test_time: 0
 - :test: test_moveBackward_command0_ReturnDisableLog
-  :line: 85
+  :line: 80
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -35,4 +35,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.001349827999547415
+:time: 0.0019688960019266233

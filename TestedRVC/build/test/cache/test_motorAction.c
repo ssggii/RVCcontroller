@@ -2,25 +2,23 @@
 #include "/var/lib/gems/2.7.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
 
 
-void setUp(void)
-
-{
-
-}
 
 
-
-void tearDown(void)
-
-{
+void setUp(void) {
 
 }
 
 
 
-void test_turnLeft_triggered_ReturnCorrectLog(void)
+void tearDown(void) {
 
-{
+}
+
+
+
+
+
+void test_turnLeft_triggered_ReturnCorrectLog(void) {
 
 
 
@@ -42,17 +40,15 @@ void test_turnLeft_triggered_ReturnCorrectLog(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(22));
-
-
+   ), (UNITY_UINT)(21));
 
 }
 
 
 
-void test_turnRight_triggered_ReturnCorrectLog(void)
 
-{
+
+void test_turnRight_triggered_ReturnCorrectLog(void) {
 
 
 
@@ -74,17 +70,15 @@ void test_turnRight_triggered_ReturnCorrectLog(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(36));
-
-
+   ), (UNITY_UINT)(34));
 
 }
 
 
 
-void test_moveForward_command1_ReturnEnableLog(void)
 
-{
+
+void test_moveForward_command1_ReturnEnableLog(void) {
 
 
 
@@ -108,17 +102,15 @@ void test_moveForward_command1_ReturnEnableLog(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(51));
-
-
+   ), (UNITY_UINT)(48));
 
 }
 
 
 
-void test_moveForward_command0_ReturnDisableLog(void)
 
-{
+
+void test_moveForward_command0_ReturnDisableLog(void) {
 
 
 
@@ -142,17 +134,15 @@ void test_moveForward_command0_ReturnDisableLog(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(66));
-
-
+   ), (UNITY_UINT)(62));
 
 }
 
 
 
-void test_moveBackward_command1_ReturnEnableLog(void)
 
-{
+
+void test_moveBackward_command1_ReturnEnableLog(void) {
 
 
 
@@ -176,17 +166,15 @@ void test_moveBackward_command1_ReturnEnableLog(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(81));
-
-
+   ), (UNITY_UINT)(76));
 
 }
 
 
 
-void test_moveBackward_command0_ReturnDisableLog(void)
 
-{
+
+void test_moveBackward_command0_ReturnDisableLog(void) {
 
 
 
@@ -210,8 +198,6 @@ void test_moveBackward_command0_ReturnDisableLog(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(96));
-
-
+   ), (UNITY_UINT)(90));
 
 }

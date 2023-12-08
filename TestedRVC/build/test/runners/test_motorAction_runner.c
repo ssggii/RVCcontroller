@@ -81,11 +81,11 @@ int main(void)
 {
   UnityBegin("test_motorAction.c");
   run_test(test_turnLeft_triggered_ReturnCorrectLog, "test_turnLeft_triggered_ReturnCorrectLog", 12);
-  run_test(test_turnRight_triggered_ReturnCorrectLog, "test_turnRight_triggered_ReturnCorrectLog", 26);
-  run_test(test_moveForward_command1_ReturnEnableLog, "test_moveForward_command1_ReturnEnableLog", 40);
-  run_test(test_moveForward_command0_ReturnDisableLog, "test_moveForward_command0_ReturnDisableLog", 55);
-  run_test(test_moveBackward_command1_ReturnEnableLog, "test_moveBackward_command1_ReturnEnableLog", 70);
-  run_test(test_moveBackward_command0_ReturnDisableLog, "test_moveBackward_command0_ReturnDisableLog", 85);
+  run_test(test_turnRight_triggered_ReturnCorrectLog, "test_turnRight_triggered_ReturnCorrectLog", 25);
+  run_test(test_moveForward_command1_ReturnEnableLog, "test_moveForward_command1_ReturnEnableLog", 38);
+  run_test(test_moveForward_command0_ReturnDisableLog, "test_moveForward_command0_ReturnDisableLog", 52);
+  run_test(test_moveBackward_command1_ReturnEnableLog, "test_moveBackward_command1_ReturnEnableLog", 66);
+  run_test(test_moveBackward_command0_ReturnDisableLog, "test_moveBackward_command0_ReturnDisableLog", 80);
 
   return UnityEnd();
 }
