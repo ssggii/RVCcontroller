@@ -1,8 +1,8 @@
 // Copyright 2023 algoORgoal, ssggii
-#include "unity.h"
-#include "detectObstacleDirection.h"
 #include <time.h>
 #include <stdlib.h>
+#include "unity.h"
+#include "detectObstacleDirection.h"
 
 #include "mock_obstacleSensorInterface.h"
 
@@ -21,7 +21,7 @@ void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void) {
     int frontSensorInput = 1;
     int leftSensorInput = 1;
     int rightSensorInput = 1;
-    
+
 
     // Act
     frontSensorInterface_ExpectAndReturn(seed, frontSensorInput);
