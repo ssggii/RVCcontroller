@@ -1,8 +1,11 @@
 // Copyright 2023 algoORgoal, ssggii
+#include <time.h>
+#include <stdlib.h>
 #include "unity.h"
 #include "obstacleSensorInterface.h"
 
 int d, f, l, r;
+unsigned int seed;
 
 void setUp(void) {
 }
@@ -47,7 +50,7 @@ void test_detectDust_DustLevelGreaterThan60_ReturnTrue(void) {
 // 먼지 흡입량(input)이 0~100 범위에 있으면 PASS
 void test_dustSensorInterface_Default_ReturnCorrectRangeInput(void) {
     // Arrange, Act
-    int dustInput = dustSensorInterface();
+    int dustInput = dustSensorInterface(&seed);
 
     // Assert
     TEST_ASSERT_INT_WITHIN(50, 50, dustInput);
@@ -56,7 +59,7 @@ void test_dustSensorInterface_Default_ReturnCorrectRangeInput(void) {
 // 전방 장애물 센서 input이 0 또는 1이면 PASS
 void test_frontSensorInterface_Default_ReturnCorrectRangeInput(void) {
     // Arrange, Act
-    f = frontSensorInterface();
+    f = frontSensorInterface(&seed);
 
     // Assert
     TEST_ASSERT_LESS_OR_EQUAL_UINT(1, f);
@@ -65,7 +68,7 @@ void test_frontSensorInterface_Default_ReturnCorrectRangeInput(void) {
 // 좌측 장애물 센서 input이 0 또는 1이면 PASS
 void test_leftSensorInterface_Default_ReturnCorrectRangeInput(void) {
     // Arrange, Act
-    l = leftSensorInterface();
+    l = leftSensorInterface(&seed);
 
     // Assert
     TEST_ASSERT_LESS_OR_EQUAL_UINT(1, l);
@@ -74,7 +77,7 @@ void test_leftSensorInterface_Default_ReturnCorrectRangeInput(void) {
 // 우측 장애물 센서 input이 0 또는 1이면 PASS
 void test_rightSensorInterface_Default_ReturnCorrectRangeInput(void) {
     // Arrange, Act
-    r = rightSensorInterface();
+    r = rightSensorInterface(&seed);
 
     // Assert
     TEST_ASSERT_LESS_OR_EQUAL_UINT(1, r);
