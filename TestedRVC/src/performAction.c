@@ -1,13 +1,15 @@
+// Copyright 2023 algoORgoal, ssggii
 #include "turnFirstOrSecondAction.h"
+#include "performAction.h"
 
-void performActionForward(int f, int l, int r, int mode){
+void performActionForward(int f, int l, int r, int mode) {
     turnFirstActionFromForward(f, l, r, mode);
     if (f == 1 && l == 1 && r == 1)
         return;
     turnSecondAction();
 }
 
-void performActionBackward(int f, int l, int r, int mode){
+void performActionBackward(int f, int l, int r, int mode) {
     turnFirstActionFromBackward(f, l, r, mode);
     turnSecondAction();
 }

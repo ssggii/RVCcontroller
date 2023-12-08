@@ -1,3 +1,4 @@
+// Copyright 2023 algoORgoal, ssggii
 #include "detectObstacleDirection.h"
 #include "obstacleSensorInterface.h"
 

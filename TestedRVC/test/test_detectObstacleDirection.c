@@ -1,18 +1,17 @@
+// Copyright 2023 algoORgoal, ssggii
 #include "unity.h"
 #include "detectObstacleDirection.h"
 
 #include "mock_obstacleSensorInterface.h"
 
-void setUp(void)
-{
+void setUp(void) {
 }
 
-void tearDown(void)
-{
+void tearDown(void) {
 }
 
-void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void) // f,l,r input을 int[] 배열로 저장하면 PASS
-{
+// f,l,r input을 int[] 배열로 저장하면 PASS
+void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void) {
     // Arrange
     int obstacleInputArray[3] = {0};
     int frontSensorInput = 1;
@@ -30,5 +29,4 @@ void test_detectObstacleDirection_Default_SaveObstacleInputsToArray(void) // f,l
     TEST_ASSERT_EQUAL_INT(frontSensorInput, obstacleInputArray[0]);
     TEST_ASSERT_EQUAL_INT(leftSensorInput, obstacleInputArray[1]);
     TEST_ASSERT_EQUAL_INT(rightSensorInput, obstacleInputArray[2]);
-    
 }

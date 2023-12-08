@@ -1,18 +1,16 @@
+// Copyright 2023 algoORgoal, ssggii
 #include "unity.h"
 #include "turn.h"
 
 #include "mock_motorAction.h"
 
-void setUp(void)
-{
+void setUp(void) {
 }
 
-void tearDown(void)
-{
+void tearDown(void) {
 }
 
-void test_turn_1001_turnLeft(void)
-{
+void test_turn_1001_turnLeft(void) {
     // Arrange
     int f = 1;
     int l = 0;
@@ -25,8 +23,7 @@ void test_turn_1001_turnLeft(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_1011_turnLeft(void)
-{
+void test_turn_1011_turnLeft(void) {
     // Arrange
     int f = 1;
     int l = 0;
@@ -39,8 +36,7 @@ void test_turn_1011_turnLeft(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_1101_turnRight(void)
-{
+void test_turn_1101_turnRight(void) {
     // Arrange
     int f = 1;
     int l = 1;
@@ -53,8 +49,7 @@ void test_turn_1101_turnRight(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_1111_moveBackward(void)
-{
+void test_turn_1111_moveBackward(void) {
     // Arrange
     int f = 1;
     int l = 1;
@@ -68,8 +63,7 @@ void test_turn_1111_moveBackward(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_0000_moveBackward(void)
-{
+void test_turn_0000_moveBackward(void) {
     // Arrange
     int f = 0;
     int l = 0;
@@ -85,8 +79,7 @@ void test_turn_0000_moveBackward(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_0010_moveBackward(void)
-{
+void test_turn_0010_moveBackward(void) {
     // Arrange
     int f = 0;
     int l = 0;
@@ -102,8 +95,7 @@ void test_turn_0010_moveBackward(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_1000_moveBackward(void)
-{
+void test_turn_1000_moveBackward(void) {
     // Arrange
     int f = 1;
     int l = 0;
@@ -119,8 +111,7 @@ void test_turn_1000_moveBackward(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_1010_moveBackward(void)
-{
+void test_turn_1010_moveBackward(void) {
     // Arrange
     int f = 1;
     int l = 0;
@@ -136,8 +127,7 @@ void test_turn_1010_moveBackward(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_0100_turnRight(void)
-{
+void test_turn_0100_turnRight(void) {
     // Arrange
     int f = 0;
     int l = 1;
@@ -153,8 +143,7 @@ void test_turn_0100_turnRight(void)
     turn(f, l, r, mode);
 }
 
-void test_turn_1100_turnRight(void)
-{
+void test_turn_1100_turnRight(void) {
     // Arrange
     int f = 1;
     int l = 1;

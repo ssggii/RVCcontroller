@@ -1,3 +1,6 @@
+// Copyright 2023 algoORgoal, ssggii
+#ifndef TESTEDRVC_SRC_MAIN_H_
+#define TESTEDRVC_SRC_MAIN_H_
 int detectDust(int dustInput);
 void detectObstacleDirection(int obstacleArray[]);
 int dustSensorInterface();
@@ -17,3 +20,4 @@ char* turnLeft();
 char* turnRight();
 char* moveForward(int command);
 char* moveBackward(int command);
+#endif  // TESTEDRVC_SRC_MAIN_H_
