@@ -27,6 +27,7 @@ int main(void) {
         r = obstacleLocationArray[2];
         printf("d, f, l, r, mode: %d, %d, %d, %d, %d\n", d, f, l, r, mode);
         mode = performActionByMode(d, f, l, r, mode);
+        printf("\n");
         sleep(3);
     }
 }

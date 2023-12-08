@@ -12,6 +12,7 @@ static const char* CMockString_powerUpCleaner = "powerUpCleaner";
 typedef struct _CMOCK_cleanerSwitch_CALL_INSTANCE
 {
   UNITY_LINE_TYPE LineNumber;
+  char* ReturnVal;
   int CallOrder;
   int Expected_command;
 
@@ -20,6 +21,7 @@ typedef struct _CMOCK_cleanerSwitch_CALL_INSTANCE
 typedef struct _CMOCK_powerUpCleaner_CALL_INSTANCE
 {
   UNITY_LINE_TYPE LineNumber;
+  char* ReturnVal;
   int CallOrder;
 
 } CMOCK_powerUpCleaner_CALL_INSTANCE;
@@ -27,11 +29,13 @@ typedef struct _CMOCK_powerUpCleaner_CALL_INSTANCE
 static struct mock_cleanerActionInstance
 {
   char cleanerSwitch_IgnoreBool;
+  char* cleanerSwitch_FinalReturn;
   char cleanerSwitch_CallbackBool;
   CMOCK_cleanerSwitch_CALLBACK cleanerSwitch_CallbackFunctionPointer;
   int cleanerSwitch_CallbackCalls;
   CMOCK_MEM_INDEX_TYPE cleanerSwitch_CallInstance;
   char powerUpCleaner_IgnoreBool;
+  char* powerUpCleaner_FinalReturn;
   char powerUpCleaner_CallbackBool;
   CMOCK_powerUpCleaner_CALLBACK powerUpCleaner_CallbackFunctionPointer;
   int powerUpCleaner_CallbackCalls;
@@ -87,7 +91,7 @@ void mock_cleanerAction_Destroy(void)
   GlobalVerifyOrder = 0;
 }
 
-void cleanerSwitch(int command)
+char* cleanerSwitch(int command)
 {
   UNITY_LINE_TYPE cmock_line = TEST_LINE_NUM;
   CMOCK_cleanerSwitch_CALL_INSTANCE* cmock_call_instance;
@@ -97,14 +101,17 @@ void cleanerSwitch(int command)
   if (Mock.cleanerSwitch_IgnoreBool)
   {
     UNITY_CLR_DETAILS();
-    return;
+    if (cmock_call_instance == NULL)
+      return Mock.cleanerSwitch_FinalReturn;
+    Mock.cleanerSwitch_FinalReturn = cmock_call_instance->ReturnVal;
+    return cmock_call_instance->ReturnVal;
   }
   if (!Mock.cleanerSwitch_CallbackBool &&
       Mock.cleanerSwitch_CallbackFunctionPointer != NULL)
   {
-    Mock.cleanerSwitch_CallbackFunctionPointer(command, Mock.cleanerSwitch_CallbackCalls++);
+    char* cmock_cb_ret = Mock.cleanerSwitch_CallbackFunctionPointer(command, Mock.cleanerSwitch_CallbackCalls++);
     UNITY_CLR_DETAILS();
-    return;
+    return cmock_cb_ret;
   }
   UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, CMockStringCalledMore);
   cmock_line = cmock_call_instance->LineNumber;
@@ -118,9 +125,10 @@ void cleanerSwitch(int command)
   }
   if (Mock.cleanerSwitch_CallbackFunctionPointer != NULL)
   {
-    Mock.cleanerSwitch_CallbackFunctionPointer(command, Mock.cleanerSwitch_CallbackCalls++);
+    cmock_call_instance->ReturnVal = Mock.cleanerSwitch_CallbackFunctionPointer(command, Mock.cleanerSwitch_CallbackCalls++);
   }
   UNITY_CLR_DETAILS();
+  return cmock_call_instance->ReturnVal;
 }
 
 void CMockExpectParameters_cleanerSwitch(CMOCK_cleanerSwitch_CALL_INSTANCE* cmock_call_instance, int command);
@@ -129,17 +137,27 @@ void CMockExpectParameters_cleanerSwitch(CMOCK_cleanerSwitch_CALL_INSTANCE* cmoc
   cmock_call_instance->Expected_command = command;
 }
 
-void cleanerSwitch_CMockIgnore(void)
+void cleanerSwitch_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return)
 {
+  CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_cleanerSwitch_CALL_INSTANCE));
+  CMOCK_cleanerSwitch_CALL_INSTANCE* cmock_call_instance = (CMOCK_cleanerSwitch_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
+  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, CMockStringOutOfMemory);
+  memset(cmock_call_instance, 0, sizeof(*cmock_call_instance));
+  Mock.cleanerSwitch_CallInstance = CMock_Guts_MemChain(Mock.cleanerSwitch_CallInstance, cmock_guts_index);
+  Mock.cleanerSwitch_IgnoreBool = (char)0;
+  cmock_call_instance->LineNumber = cmock_line;
+  cmock_call_instance->ReturnVal = cmock_to_return;
   Mock.cleanerSwitch_IgnoreBool = (char)1;
 }
 
 void cleanerSwitch_CMockStopIgnore(void)
 {
+  if(Mock.cleanerSwitch_IgnoreBool)
+    Mock.cleanerSwitch_CallInstance = CMock_Guts_MemNext(Mock.cleanerSwitch_CallInstance);
   Mock.cleanerSwitch_IgnoreBool = (char)0;
 }
 
-void cleanerSwitch_CMockExpect(UNITY_LINE_TYPE cmock_line, int command)
+void cleanerSwitch_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int command, char* cmock_to_return)
 {
   CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_cleanerSwitch_CALL_INSTANCE));
   CMOCK_cleanerSwitch_CALL_INSTANCE* cmock_call_instance = (CMOCK_cleanerSwitch_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
@@ -150,6 +168,7 @@ void cleanerSwitch_CMockExpect(UNITY_LINE_TYPE cmock_line, int command)
   cmock_call_instance->LineNumber = cmock_line;
   cmock_call_instance->CallOrder = ++GlobalExpectCount;
   CMockExpectParameters_cleanerSwitch(cmock_call_instance, command);
+  cmock_call_instance->ReturnVal = cmock_to_return;
 }
 
 void cleanerSwitch_AddCallback(CMOCK_cleanerSwitch_CALLBACK Callback)
@@ -166,7 +185,7 @@ void cleanerSwitch_Stub(CMOCK_cleanerSwitch_CALLBACK Callback)
   Mock.cleanerSwitch_CallbackFunctionPointer = Callback;
 }
 
-void powerUpCleaner(void)
+char* powerUpCleaner(void)
 {
   UNITY_LINE_TYPE cmock_line = TEST_LINE_NUM;
   CMOCK_powerUpCleaner_CALL_INSTANCE* cmock_call_instance;
@@ -176,14 +195,17 @@ void powerUpCleaner(void)
   if (Mock.powerUpCleaner_IgnoreBool)
   {
     UNITY_CLR_DETAILS();
-    return;
+    if (cmock_call_instance == NULL)
+      return Mock.powerUpCleaner_FinalReturn;
+    Mock.powerUpCleaner_FinalReturn = cmock_call_instance->ReturnVal;
+    return cmock_call_instance->ReturnVal;
   }
   if (!Mock.powerUpCleaner_CallbackBool &&
       Mock.powerUpCleaner_CallbackFunctionPointer != NULL)
   {
-    Mock.powerUpCleaner_CallbackFunctionPointer(Mock.powerUpCleaner_CallbackCalls++);
+    char* cmock_cb_ret = Mock.powerUpCleaner_CallbackFunctionPointer(Mock.powerUpCleaner_CallbackCalls++);
     UNITY_CLR_DETAILS();
-    return;
+    return cmock_cb_ret;
   }
   UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, CMockStringCalledMore);
   cmock_line = cmock_call_instance->LineNumber;
@@ -193,22 +215,33 @@ void powerUpCleaner(void)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledLate);
   if (Mock.powerUpCleaner_CallbackFunctionPointer != NULL)
   {
-    Mock.powerUpCleaner_CallbackFunctionPointer(Mock.powerUpCleaner_CallbackCalls++);
+    cmock_call_instance->ReturnVal = Mock.powerUpCleaner_CallbackFunctionPointer(Mock.powerUpCleaner_CallbackCalls++);
   }
   UNITY_CLR_DETAILS();
+  return cmock_call_instance->ReturnVal;
 }
 
-void powerUpCleaner_CMockIgnore(void)
+void powerUpCleaner_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return)
 {
+  CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_powerUpCleaner_CALL_INSTANCE));
+  CMOCK_powerUpCleaner_CALL_INSTANCE* cmock_call_instance = (CMOCK_powerUpCleaner_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
+  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, CMockStringOutOfMemory);
+  memset(cmock_call_instance, 0, sizeof(*cmock_call_instance));
+  Mock.powerUpCleaner_CallInstance = CMock_Guts_MemChain(Mock.powerUpCleaner_CallInstance, cmock_guts_index);
+  Mock.powerUpCleaner_IgnoreBool = (char)0;
+  cmock_call_instance->LineNumber = cmock_line;
+  cmock_call_instance->ReturnVal = cmock_to_return;
   Mock.powerUpCleaner_IgnoreBool = (char)1;
 }
 
 void powerUpCleaner_CMockStopIgnore(void)
 {
+  if(Mock.powerUpCleaner_IgnoreBool)
+    Mock.powerUpCleaner_CallInstance = CMock_Guts_MemNext(Mock.powerUpCleaner_CallInstance);
   Mock.powerUpCleaner_IgnoreBool = (char)0;
 }
 
-void powerUpCleaner_CMockExpect(UNITY_LINE_TYPE cmock_line)
+void powerUpCleaner_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return)
 {
   CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_powerUpCleaner_CALL_INSTANCE));
   CMOCK_powerUpCleaner_CALL_INSTANCE* cmock_call_instance = (CMOCK_powerUpCleaner_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
@@ -218,6 +251,7 @@ void powerUpCleaner_CMockExpect(UNITY_LINE_TYPE cmock_line)
   Mock.powerUpCleaner_IgnoreBool = (char)0;
   cmock_call_instance->LineNumber = cmock_line;
   cmock_call_instance->CallOrder = ++GlobalExpectCount;
+  cmock_call_instance->ReturnVal = cmock_to_return;
 }
 
 void powerUpCleaner_AddCallback(CMOCK_powerUpCleaner_CALLBACK Callback)

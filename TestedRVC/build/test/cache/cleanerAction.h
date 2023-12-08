@@ -1,3 +1,3 @@
-void cleanerSwitch(int command);
+char* cleanerSwitch(int command);
 
-void powerUpCleaner();
+char* powerUpCleaner();
