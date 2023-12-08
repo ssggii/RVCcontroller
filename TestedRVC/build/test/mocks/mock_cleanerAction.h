@@ -24,23 +24,23 @@ void mock_cleanerAction_Verify(void);
 
 
 
-#define cleanerSwitch_Ignore() cleanerSwitch_CMockIgnore()
-void cleanerSwitch_CMockIgnore(void);
+#define cleanerSwitch_IgnoreAndReturn(cmock_retval) cleanerSwitch_CMockIgnoreAndReturn(__LINE__, cmock_retval)
+void cleanerSwitch_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
 #define cleanerSwitch_StopIgnore() cleanerSwitch_CMockStopIgnore()
 void cleanerSwitch_CMockStopIgnore(void);
-#define cleanerSwitch_Expect(command) cleanerSwitch_CMockExpect(__LINE__, command)
-void cleanerSwitch_CMockExpect(UNITY_LINE_TYPE cmock_line, int command);
-typedef void (* CMOCK_cleanerSwitch_CALLBACK)(int command, int cmock_num_calls);
+#define cleanerSwitch_ExpectAndReturn(command, cmock_retval) cleanerSwitch_CMockExpectAndReturn(__LINE__, command, cmock_retval)
+void cleanerSwitch_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int command, char* cmock_to_return);
+typedef char* (* CMOCK_cleanerSwitch_CALLBACK)(int command, int cmock_num_calls);
 void cleanerSwitch_AddCallback(CMOCK_cleanerSwitch_CALLBACK Callback);
 void cleanerSwitch_Stub(CMOCK_cleanerSwitch_CALLBACK Callback);
 #define cleanerSwitch_StubWithCallback cleanerSwitch_Stub
-#define powerUpCleaner_Ignore() powerUpCleaner_CMockIgnore()
-void powerUpCleaner_CMockIgnore(void);
+#define powerUpCleaner_IgnoreAndReturn(cmock_retval) powerUpCleaner_CMockIgnoreAndReturn(__LINE__, cmock_retval)
+void powerUpCleaner_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
 #define powerUpCleaner_StopIgnore() powerUpCleaner_CMockStopIgnore()
 void powerUpCleaner_CMockStopIgnore(void);
-#define powerUpCleaner_Expect() powerUpCleaner_CMockExpect(__LINE__)
-void powerUpCleaner_CMockExpect(UNITY_LINE_TYPE cmock_line);
-typedef void (* CMOCK_powerUpCleaner_CALLBACK)(int cmock_num_calls);
+#define powerUpCleaner_ExpectAndReturn(cmock_retval) powerUpCleaner_CMockExpectAndReturn(__LINE__, cmock_retval)
+void powerUpCleaner_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, char* cmock_to_return);
+typedef char* (* CMOCK_powerUpCleaner_CALLBACK)(int cmock_num_calls);
 void powerUpCleaner_AddCallback(CMOCK_powerUpCleaner_CALLBACK Callback);
 void powerUpCleaner_Stub(CMOCK_powerUpCleaner_CALLBACK Callback);
 #define powerUpCleaner_StubWithCallback powerUpCleaner_Stub
