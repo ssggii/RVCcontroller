@@ -2,11 +2,11 @@
 #ifndef TESTEDRVC_SRC_MAIN_H_
 #define TESTEDRVC_SRC_MAIN_H_
 int detectDust(int dustInput);
-void detectObstacleDirection(int obstacleArray[]);
-int dustSensorInterface();
-int frontSensorInterface();
-int leftSensorInterface();
-int rightSensorInterface();
+void detectObstacleDirection(int obstacleArray[], unsigned int *seed);
+int dustSensorInterface(unsigned int *seed);
+int frontSensorInterface(unsigned int *seed);
+int leftSensorInterface(unsigned int *seed);
+int rightSensorInterface(unsigned int *seed);
 int performActionByMode(int d, int f, int l, int r, int mode);
 void performActionForward(int f, int l, int r, int mode);
 void performActionBackward(int f, int l, int r, int mode);

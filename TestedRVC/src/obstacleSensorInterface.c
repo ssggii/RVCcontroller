@@ -12,30 +12,26 @@ int detectDust(int dustInput) {
     return isDustDetected;
 }
 
-int dustSensorInterface() {  // Detect dust level from sensor
+int dustSensorInterface(unsigned int *seed) {  // Detect dust level from sensor
     int dustLevel;
-    srand(time(NULL));
-    dustLevel = rand() % 101;  // range from 0 to 100
+    dustLevel = rand_r(seed) % 101;  // range from 0 to 100
     return dustLevel;
 }
 
-int frontSensorInterface() {  // Detect F input
+int frontSensorInterface(unsigned int *seed) {  // Detect F input
     int isObstacleDetectedOnFront;
-    srand(time(NULL));
-    isObstacleDetectedOnFront = rand() % 2;
+    isObstacleDetectedOnFront = rand_r(seed) % 2;
     return isObstacleDetectedOnFront;
 }
 
-int leftSensorInterface() {  // Detect L input
+int leftSensorInterface(unsigned int *seed) {  // Detect L input
     int isObstacleDetectedOnLeft;
-    srand(time(NULL));
-    isObstacleDetectedOnLeft = rand() % 2;
+    isObstacleDetectedOnLeft = rand_r(seed) % 2;
     return isObstacleDetectedOnLeft;
 }
 
-int rightSensorInterface() {  // Detect R input
+int rightSensorInterface(unsigned int *seed) {  // Detect R input
     int isObstacleDetectedOnRight;
-    srand(time(NULL));
-    isObstacleDetectedOnRight = rand() % 2;
+    isObstacleDetectedOnRight = rand_r(seed) % 2;
     return isObstacleDetectedOnRight;
 }

@@ -28,9 +28,9 @@ void mock_obstacleSensorInterface_Verify(void);
 void detectDust_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
 #define detectDust_StopIgnore() detectDust_CMockStopIgnore()
 void detectDust_CMockStopIgnore(void);
-#define detectDust_ExpectAndReturn(cmock_retval) detectDust_CMockExpectAndReturn(__LINE__, cmock_retval)
-void detectDust_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
-typedef int (* CMOCK_detectDust_CALLBACK)(int cmock_num_calls);
+#define detectDust_ExpectAndReturn(dustInput, cmock_retval) detectDust_CMockExpectAndReturn(__LINE__, dustInput, cmock_retval)
+void detectDust_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int dustInput, int cmock_to_return);
+typedef int (* CMOCK_detectDust_CALLBACK)(int dustInput, int cmock_num_calls);
 void detectDust_AddCallback(CMOCK_detectDust_CALLBACK Callback);
 void detectDust_Stub(CMOCK_detectDust_CALLBACK Callback);
 #define detectDust_StubWithCallback detectDust_Stub
@@ -38,9 +38,9 @@ void detectDust_Stub(CMOCK_detectDust_CALLBACK Callback);
 void dustSensorInterface_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
 #define dustSensorInterface_StopIgnore() dustSensorInterface_CMockStopIgnore()
 void dustSensorInterface_CMockStopIgnore(void);
-#define dustSensorInterface_ExpectAndReturn(cmock_retval) dustSensorInterface_CMockExpectAndReturn(__LINE__, cmock_retval)
-void dustSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
-typedef int (* CMOCK_dustSensorInterface_CALLBACK)(int cmock_num_calls);
+#define dustSensorInterface_ExpectAndReturn(seed, cmock_retval) dustSensorInterface_CMockExpectAndReturn(__LINE__, seed, cmock_retval)
+void dustSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, unsigned int* seed, int cmock_to_return);
+typedef int (* CMOCK_dustSensorInterface_CALLBACK)(unsigned int* seed, int cmock_num_calls);
 void dustSensorInterface_AddCallback(CMOCK_dustSensorInterface_CALLBACK Callback);
 void dustSensorInterface_Stub(CMOCK_dustSensorInterface_CALLBACK Callback);
 #define dustSensorInterface_StubWithCallback dustSensorInterface_Stub
@@ -48,9 +48,9 @@ void dustSensorInterface_Stub(CMOCK_dustSensorInterface_CALLBACK Callback);
 void frontSensorInterface_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
 #define frontSensorInterface_StopIgnore() frontSensorInterface_CMockStopIgnore()
 void frontSensorInterface_CMockStopIgnore(void);
-#define frontSensorInterface_ExpectAndReturn(cmock_retval) frontSensorInterface_CMockExpectAndReturn(__LINE__, cmock_retval)
-void frontSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
-typedef int (* CMOCK_frontSensorInterface_CALLBACK)(int cmock_num_calls);
+#define frontSensorInterface_ExpectAndReturn(seed, cmock_retval) frontSensorInterface_CMockExpectAndReturn(__LINE__, seed, cmock_retval)
+void frontSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, unsigned int* seed, int cmock_to_return);
+typedef int (* CMOCK_frontSensorInterface_CALLBACK)(unsigned int* seed, int cmock_num_calls);
 void frontSensorInterface_AddCallback(CMOCK_frontSensorInterface_CALLBACK Callback);
 void frontSensorInterface_Stub(CMOCK_frontSensorInterface_CALLBACK Callback);
 #define frontSensorInterface_StubWithCallback frontSensorInterface_Stub
@@ -58,9 +58,9 @@ void frontSensorInterface_Stub(CMOCK_frontSensorInterface_CALLBACK Callback);
 void leftSensorInterface_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
 #define leftSensorInterface_StopIgnore() leftSensorInterface_CMockStopIgnore()
 void leftSensorInterface_CMockStopIgnore(void);
-#define leftSensorInterface_ExpectAndReturn(cmock_retval) leftSensorInterface_CMockExpectAndReturn(__LINE__, cmock_retval)
-void leftSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
-typedef int (* CMOCK_leftSensorInterface_CALLBACK)(int cmock_num_calls);
+#define leftSensorInterface_ExpectAndReturn(seed, cmock_retval) leftSensorInterface_CMockExpectAndReturn(__LINE__, seed, cmock_retval)
+void leftSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, unsigned int* seed, int cmock_to_return);
+typedef int (* CMOCK_leftSensorInterface_CALLBACK)(unsigned int* seed, int cmock_num_calls);
 void leftSensorInterface_AddCallback(CMOCK_leftSensorInterface_CALLBACK Callback);
 void leftSensorInterface_Stub(CMOCK_leftSensorInterface_CALLBACK Callback);
 #define leftSensorInterface_StubWithCallback leftSensorInterface_Stub
@@ -68,9 +68,9 @@ void leftSensorInterface_Stub(CMOCK_leftSensorInterface_CALLBACK Callback);
 void rightSensorInterface_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
 #define rightSensorInterface_StopIgnore() rightSensorInterface_CMockStopIgnore()
 void rightSensorInterface_CMockStopIgnore(void);
-#define rightSensorInterface_ExpectAndReturn(cmock_retval) rightSensorInterface_CMockExpectAndReturn(__LINE__, cmock_retval)
-void rightSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
-typedef int (* CMOCK_rightSensorInterface_CALLBACK)(int cmock_num_calls);
+#define rightSensorInterface_ExpectAndReturn(seed, cmock_retval) rightSensorInterface_CMockExpectAndReturn(__LINE__, seed, cmock_retval)
+void rightSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, unsigned int* seed, int cmock_to_return);
+typedef int (* CMOCK_rightSensorInterface_CALLBACK)(unsigned int* seed, int cmock_num_calls);
 void rightSensorInterface_AddCallback(CMOCK_rightSensorInterface_CALLBACK Callback);
 void rightSensorInterface_Stub(CMOCK_rightSensorInterface_CALLBACK Callback);
 #define rightSensorInterface_StubWithCallback rightSensorInterface_Stub

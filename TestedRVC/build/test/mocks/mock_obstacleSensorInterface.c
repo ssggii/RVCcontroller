@@ -6,16 +6,19 @@
 #include "mock_obstacleSensorInterface.h"
 
 static const char* CMockString_detectDust = "detectDust";
+static const char* CMockString_dustInput = "dustInput";
 static const char* CMockString_dustSensorInterface = "dustSensorInterface";
 static const char* CMockString_frontSensorInterface = "frontSensorInterface";
 static const char* CMockString_leftSensorInterface = "leftSensorInterface";
 static const char* CMockString_rightSensorInterface = "rightSensorInterface";
+static const char* CMockString_seed = "seed";
 
 typedef struct _CMOCK_detectDust_CALL_INSTANCE
 {
   UNITY_LINE_TYPE LineNumber;
   int ReturnVal;
   int CallOrder;
+  int Expected_dustInput;
 
 } CMOCK_detectDust_CALL_INSTANCE;
 
@@ -24,6 +27,7 @@ typedef struct _CMOCK_dustSensorInterface_CALL_INSTANCE
   UNITY_LINE_TYPE LineNumber;
   int ReturnVal;
   int CallOrder;
+  unsigned int* Expected_seed;
 
 } CMOCK_dustSensorInterface_CALL_INSTANCE;
 
@@ -32,6 +36,7 @@ typedef struct _CMOCK_frontSensorInterface_CALL_INSTANCE
   UNITY_LINE_TYPE LineNumber;
   int ReturnVal;
   int CallOrder;
+  unsigned int* Expected_seed;
 
 } CMOCK_frontSensorInterface_CALL_INSTANCE;
 
@@ -40,6 +45,7 @@ typedef struct _CMOCK_leftSensorInterface_CALL_INSTANCE
   UNITY_LINE_TYPE LineNumber;
   int ReturnVal;
   int CallOrder;
+  unsigned int* Expected_seed;
 
 } CMOCK_leftSensorInterface_CALL_INSTANCE;
 
@@ -48,6 +54,7 @@ typedef struct _CMOCK_rightSensorInterface_CALL_INSTANCE
   UNITY_LINE_TYPE LineNumber;
   int ReturnVal;
   int CallOrder;
+  unsigned int* Expected_seed;
 
 } CMOCK_rightSensorInterface_CALL_INSTANCE;
 
@@ -173,7 +180,7 @@ void mock_obstacleSensorInterface_Destroy(void)
   GlobalVerifyOrder = 0;
 }
 
-int detectDust(void)
+int detectDust(int dustInput)
 {
   UNITY_LINE_TYPE cmock_line = TEST_LINE_NUM;
   CMOCK_detectDust_CALL_INSTANCE* cmock_call_instance;
@@ -191,7 +198,7 @@ int detectDust(void)
   if (!Mock.detectDust_CallbackBool &&
       Mock.detectDust_CallbackFunctionPointer != NULL)
   {
-    int cmock_cb_ret = Mock.detectDust_CallbackFunctionPointer(Mock.detectDust_CallbackCalls++);
+    int cmock_cb_ret = Mock.detectDust_CallbackFunctionPointer(dustInput, Mock.detectDust_CallbackCalls++);
     UNITY_CLR_DETAILS();
     return cmock_cb_ret;
   }
@@ -201,12 +208,22 @@ int detectDust(void)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledEarly);
   if (cmock_call_instance->CallOrder < GlobalVerifyOrder)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledLate);
+  {
+    UNITY_SET_DETAILS(CMockString_detectDust,CMockString_dustInput);
+    UNITY_TEST_ASSERT_EQUAL_INT(cmock_call_instance->Expected_dustInput, dustInput, cmock_line, CMockStringMismatch);
+  }
   if (Mock.detectDust_CallbackFunctionPointer != NULL)
   {
-    cmock_call_instance->ReturnVal = Mock.detectDust_CallbackFunctionPointer(Mock.detectDust_CallbackCalls++);
+    cmock_call_instance->ReturnVal = Mock.detectDust_CallbackFunctionPointer(dustInput, Mock.detectDust_CallbackCalls++);
   }
   UNITY_CLR_DETAILS();
   return cmock_call_instance->ReturnVal;
+}
+
+void CMockExpectParameters_detectDust(CMOCK_detectDust_CALL_INSTANCE* cmock_call_instance, int dustInput);
+void CMockExpectParameters_detectDust(CMOCK_detectDust_CALL_INSTANCE* cmock_call_instance, int dustInput)
+{
+  cmock_call_instance->Expected_dustInput = dustInput;
 }
 
 void detectDust_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
@@ -229,7 +246,7 @@ void detectDust_CMockStopIgnore(void)
   Mock.detectDust_IgnoreBool = (char)0;
 }
 
-void detectDust_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
+void detectDust_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int dustInput, int cmock_to_return)
 {
   CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_detectDust_CALL_INSTANCE));
   CMOCK_detectDust_CALL_INSTANCE* cmock_call_instance = (CMOCK_detectDust_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
@@ -239,6 +256,7 @@ void detectDust_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_re
   Mock.detectDust_IgnoreBool = (char)0;
   cmock_call_instance->LineNumber = cmock_line;
   cmock_call_instance->CallOrder = ++GlobalExpectCount;
+  CMockExpectParameters_detectDust(cmock_call_instance, dustInput);
   cmock_call_instance->ReturnVal = cmock_to_return;
 }
 
@@ -256,7 +274,7 @@ void detectDust_Stub(CMOCK_detectDust_CALLBACK Callback)
   Mock.detectDust_CallbackFunctionPointer = Callback;
 }
 
-int dustSensorInterface(void)
+int dustSensorInterface(unsigned int* seed)
 {
   UNITY_LINE_TYPE cmock_line = TEST_LINE_NUM;
   CMOCK_dustSensorInterface_CALL_INSTANCE* cmock_call_instance;
@@ -274,7 +292,7 @@ int dustSensorInterface(void)
   if (!Mock.dustSensorInterface_CallbackBool &&
       Mock.dustSensorInterface_CallbackFunctionPointer != NULL)
   {
-    int cmock_cb_ret = Mock.dustSensorInterface_CallbackFunctionPointer(Mock.dustSensorInterface_CallbackCalls++);
+    int cmock_cb_ret = Mock.dustSensorInterface_CallbackFunctionPointer(seed, Mock.dustSensorInterface_CallbackCalls++);
     UNITY_CLR_DETAILS();
     return cmock_cb_ret;
   }
@@ -284,12 +302,25 @@ int dustSensorInterface(void)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledEarly);
   if (cmock_call_instance->CallOrder < GlobalVerifyOrder)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledLate);
+  {
+    UNITY_SET_DETAILS(CMockString_dustSensorInterface,CMockString_seed);
+    if (cmock_call_instance->Expected_seed == NULL)
+      { UNITY_TEST_ASSERT_NULL(seed, cmock_line, CMockStringExpNULL); }
+    else
+      { UNITY_TEST_ASSERT_EQUAL_HEX32_ARRAY(cmock_call_instance->Expected_seed, seed, 1, cmock_line, CMockStringMismatch); }
+  }
   if (Mock.dustSensorInterface_CallbackFunctionPointer != NULL)
   {
-    cmock_call_instance->ReturnVal = Mock.dustSensorInterface_CallbackFunctionPointer(Mock.dustSensorInterface_CallbackCalls++);
+    cmock_call_instance->ReturnVal = Mock.dustSensorInterface_CallbackFunctionPointer(seed, Mock.dustSensorInterface_CallbackCalls++);
   }
   UNITY_CLR_DETAILS();
   return cmock_call_instance->ReturnVal;
+}
+
+void CMockExpectParameters_dustSensorInterface(CMOCK_dustSensorInterface_CALL_INSTANCE* cmock_call_instance, unsigned int* seed);
+void CMockExpectParameters_dustSensorInterface(CMOCK_dustSensorInterface_CALL_INSTANCE* cmock_call_instance, unsigned int* seed)
+{
+  cmock_call_instance->Expected_seed = seed;
 }
 
 void dustSensorInterface_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
@@ -312,7 +343,7 @@ void dustSensorInterface_CMockStopIgnore(void)
   Mock.dustSensorInterface_IgnoreBool = (char)0;
 }
 
-void dustSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
+void dustSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, unsigned int* seed, int cmock_to_return)
 {
   CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_dustSensorInterface_CALL_INSTANCE));
   CMOCK_dustSensorInterface_CALL_INSTANCE* cmock_call_instance = (CMOCK_dustSensorInterface_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
@@ -322,6 +353,7 @@ void dustSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cm
   Mock.dustSensorInterface_IgnoreBool = (char)0;
   cmock_call_instance->LineNumber = cmock_line;
   cmock_call_instance->CallOrder = ++GlobalExpectCount;
+  CMockExpectParameters_dustSensorInterface(cmock_call_instance, seed);
   cmock_call_instance->ReturnVal = cmock_to_return;
 }
 
@@ -339,7 +371,7 @@ void dustSensorInterface_Stub(CMOCK_dustSensorInterface_CALLBACK Callback)
   Mock.dustSensorInterface_CallbackFunctionPointer = Callback;
 }
 
-int frontSensorInterface(void)
+int frontSensorInterface(unsigned int* seed)
 {
   UNITY_LINE_TYPE cmock_line = TEST_LINE_NUM;
   CMOCK_frontSensorInterface_CALL_INSTANCE* cmock_call_instance;
@@ -357,7 +389,7 @@ int frontSensorInterface(void)
   if (!Mock.frontSensorInterface_CallbackBool &&
       Mock.frontSensorInterface_CallbackFunctionPointer != NULL)
   {
-    int cmock_cb_ret = Mock.frontSensorInterface_CallbackFunctionPointer(Mock.frontSensorInterface_CallbackCalls++);
+    int cmock_cb_ret = Mock.frontSensorInterface_CallbackFunctionPointer(seed, Mock.frontSensorInterface_CallbackCalls++);
     UNITY_CLR_DETAILS();
     return cmock_cb_ret;
   }
@@ -367,12 +399,25 @@ int frontSensorInterface(void)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledEarly);
   if (cmock_call_instance->CallOrder < GlobalVerifyOrder)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledLate);
+  {
+    UNITY_SET_DETAILS(CMockString_frontSensorInterface,CMockString_seed);
+    if (cmock_call_instance->Expected_seed == NULL)
+      { UNITY_TEST_ASSERT_NULL(seed, cmock_line, CMockStringExpNULL); }
+    else
+      { UNITY_TEST_ASSERT_EQUAL_HEX32_ARRAY(cmock_call_instance->Expected_seed, seed, 1, cmock_line, CMockStringMismatch); }
+  }
   if (Mock.frontSensorInterface_CallbackFunctionPointer != NULL)
   {
-    cmock_call_instance->ReturnVal = Mock.frontSensorInterface_CallbackFunctionPointer(Mock.frontSensorInterface_CallbackCalls++);
+    cmock_call_instance->ReturnVal = Mock.frontSensorInterface_CallbackFunctionPointer(seed, Mock.frontSensorInterface_CallbackCalls++);
   }
   UNITY_CLR_DETAILS();
   return cmock_call_instance->ReturnVal;
+}
+
+void CMockExpectParameters_frontSensorInterface(CMOCK_frontSensorInterface_CALL_INSTANCE* cmock_call_instance, unsigned int* seed);
+void CMockExpectParameters_frontSensorInterface(CMOCK_frontSensorInterface_CALL_INSTANCE* cmock_call_instance, unsigned int* seed)
+{
+  cmock_call_instance->Expected_seed = seed;
 }
 
 void frontSensorInterface_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
@@ -395,7 +440,7 @@ void frontSensorInterface_CMockStopIgnore(void)
   Mock.frontSensorInterface_IgnoreBool = (char)0;
 }
 
-void frontSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
+void frontSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, unsigned int* seed, int cmock_to_return)
 {
   CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_frontSensorInterface_CALL_INSTANCE));
   CMOCK_frontSensorInterface_CALL_INSTANCE* cmock_call_instance = (CMOCK_frontSensorInterface_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
@@ -405,6 +450,7 @@ void frontSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int c
   Mock.frontSensorInterface_IgnoreBool = (char)0;
   cmock_call_instance->LineNumber = cmock_line;
   cmock_call_instance->CallOrder = ++GlobalExpectCount;
+  CMockExpectParameters_frontSensorInterface(cmock_call_instance, seed);
   cmock_call_instance->ReturnVal = cmock_to_return;
 }
 
@@ -422,7 +468,7 @@ void frontSensorInterface_Stub(CMOCK_frontSensorInterface_CALLBACK Callback)
   Mock.frontSensorInterface_CallbackFunctionPointer = Callback;
 }
 
-int leftSensorInterface(void)
+int leftSensorInterface(unsigned int* seed)
 {
   UNITY_LINE_TYPE cmock_line = TEST_LINE_NUM;
   CMOCK_leftSensorInterface_CALL_INSTANCE* cmock_call_instance;
@@ -440,7 +486,7 @@ int leftSensorInterface(void)
   if (!Mock.leftSensorInterface_CallbackBool &&
       Mock.leftSensorInterface_CallbackFunctionPointer != NULL)
   {
-    int cmock_cb_ret = Mock.leftSensorInterface_CallbackFunctionPointer(Mock.leftSensorInterface_CallbackCalls++);
+    int cmock_cb_ret = Mock.leftSensorInterface_CallbackFunctionPointer(seed, Mock.leftSensorInterface_CallbackCalls++);
     UNITY_CLR_DETAILS();
     return cmock_cb_ret;
   }
@@ -450,12 +496,25 @@ int leftSensorInterface(void)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledEarly);
   if (cmock_call_instance->CallOrder < GlobalVerifyOrder)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledLate);
+  {
+    UNITY_SET_DETAILS(CMockString_leftSensorInterface,CMockString_seed);
+    if (cmock_call_instance->Expected_seed == NULL)
+      { UNITY_TEST_ASSERT_NULL(seed, cmock_line, CMockStringExpNULL); }
+    else
+      { UNITY_TEST_ASSERT_EQUAL_HEX32_ARRAY(cmock_call_instance->Expected_seed, seed, 1, cmock_line, CMockStringMismatch); }
+  }
   if (Mock.leftSensorInterface_CallbackFunctionPointer != NULL)
   {
-    cmock_call_instance->ReturnVal = Mock.leftSensorInterface_CallbackFunctionPointer(Mock.leftSensorInterface_CallbackCalls++);
+    cmock_call_instance->ReturnVal = Mock.leftSensorInterface_CallbackFunctionPointer(seed, Mock.leftSensorInterface_CallbackCalls++);
   }
   UNITY_CLR_DETAILS();
   return cmock_call_instance->ReturnVal;
+}
+
+void CMockExpectParameters_leftSensorInterface(CMOCK_leftSensorInterface_CALL_INSTANCE* cmock_call_instance, unsigned int* seed);
+void CMockExpectParameters_leftSensorInterface(CMOCK_leftSensorInterface_CALL_INSTANCE* cmock_call_instance, unsigned int* seed)
+{
+  cmock_call_instance->Expected_seed = seed;
 }
 
 void leftSensorInterface_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
@@ -478,7 +537,7 @@ void leftSensorInterface_CMockStopIgnore(void)
   Mock.leftSensorInterface_IgnoreBool = (char)0;
 }
 
-void leftSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
+void leftSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, unsigned int* seed, int cmock_to_return)
 {
   CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_leftSensorInterface_CALL_INSTANCE));
   CMOCK_leftSensorInterface_CALL_INSTANCE* cmock_call_instance = (CMOCK_leftSensorInterface_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
@@ -488,6 +547,7 @@ void leftSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cm
   Mock.leftSensorInterface_IgnoreBool = (char)0;
   cmock_call_instance->LineNumber = cmock_line;
   cmock_call_instance->CallOrder = ++GlobalExpectCount;
+  CMockExpectParameters_leftSensorInterface(cmock_call_instance, seed);
   cmock_call_instance->ReturnVal = cmock_to_return;
 }
 
@@ -505,7 +565,7 @@ void leftSensorInterface_Stub(CMOCK_leftSensorInterface_CALLBACK Callback)
   Mock.leftSensorInterface_CallbackFunctionPointer = Callback;
 }
 
-int rightSensorInterface(void)
+int rightSensorInterface(unsigned int* seed)
 {
   UNITY_LINE_TYPE cmock_line = TEST_LINE_NUM;
   CMOCK_rightSensorInterface_CALL_INSTANCE* cmock_call_instance;
@@ -523,7 +583,7 @@ int rightSensorInterface(void)
   if (!Mock.rightSensorInterface_CallbackBool &&
       Mock.rightSensorInterface_CallbackFunctionPointer != NULL)
   {
-    int cmock_cb_ret = Mock.rightSensorInterface_CallbackFunctionPointer(Mock.rightSensorInterface_CallbackCalls++);
+    int cmock_cb_ret = Mock.rightSensorInterface_CallbackFunctionPointer(seed, Mock.rightSensorInterface_CallbackCalls++);
     UNITY_CLR_DETAILS();
     return cmock_cb_ret;
   }
@@ -533,12 +593,25 @@ int rightSensorInterface(void)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledEarly);
   if (cmock_call_instance->CallOrder < GlobalVerifyOrder)
     UNITY_TEST_FAIL(cmock_line, CMockStringCalledLate);
+  {
+    UNITY_SET_DETAILS(CMockString_rightSensorInterface,CMockString_seed);
+    if (cmock_call_instance->Expected_seed == NULL)
+      { UNITY_TEST_ASSERT_NULL(seed, cmock_line, CMockStringExpNULL); }
+    else
+      { UNITY_TEST_ASSERT_EQUAL_HEX32_ARRAY(cmock_call_instance->Expected_seed, seed, 1, cmock_line, CMockStringMismatch); }
+  }
   if (Mock.rightSensorInterface_CallbackFunctionPointer != NULL)
   {
-    cmock_call_instance->ReturnVal = Mock.rightSensorInterface_CallbackFunctionPointer(Mock.rightSensorInterface_CallbackCalls++);
+    cmock_call_instance->ReturnVal = Mock.rightSensorInterface_CallbackFunctionPointer(seed, Mock.rightSensorInterface_CallbackCalls++);
   }
   UNITY_CLR_DETAILS();
   return cmock_call_instance->ReturnVal;
+}
+
+void CMockExpectParameters_rightSensorInterface(CMOCK_rightSensorInterface_CALL_INSTANCE* cmock_call_instance, unsigned int* seed);
+void CMockExpectParameters_rightSensorInterface(CMOCK_rightSensorInterface_CALL_INSTANCE* cmock_call_instance, unsigned int* seed)
+{
+  cmock_call_instance->Expected_seed = seed;
 }
 
 void rightSensorInterface_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
@@ -561,7 +634,7 @@ void rightSensorInterface_CMockStopIgnore(void)
   Mock.rightSensorInterface_IgnoreBool = (char)0;
 }
 
-void rightSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return)
+void rightSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, unsigned int* seed, int cmock_to_return)
 {
   CMOCK_MEM_INDEX_TYPE cmock_guts_index = CMock_Guts_MemNew(sizeof(CMOCK_rightSensorInterface_CALL_INSTANCE));
   CMOCK_rightSensorInterface_CALL_INSTANCE* cmock_call_instance = (CMOCK_rightSensorInterface_CALL_INSTANCE*)CMock_Guts_GetAddressFor(cmock_guts_index);
@@ -571,6 +644,7 @@ void rightSensorInterface_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, int c
   Mock.rightSensorInterface_IgnoreBool = (char)0;
   cmock_call_instance->LineNumber = cmock_line;
   cmock_call_instance->CallOrder = ++GlobalExpectCount;
+  CMockExpectParameters_rightSensorInterface(cmock_call_instance, seed);
   cmock_call_instance->ReturnVal = cmock_to_return;
 }
 
