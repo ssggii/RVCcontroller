@@ -4,12 +4,10 @@
 
 int d, f, l, r;
 
-void setUp(void)
-{
+void setUp(void) {
 }
 
-void tearDown(void)
-{
+void tearDown(void) {
     d = 0;
     f = 0;
     l = 0;
