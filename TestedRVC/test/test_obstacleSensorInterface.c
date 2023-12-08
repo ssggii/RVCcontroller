@@ -1,24 +1,20 @@
 // Copyright 2023 algoORgoal, ssggii
-#include "unity.h"
-#include "obstacleSensorInterface.h"
 #include <time.h>
 #include <stdlib.h>
+#include "unity.h"
+#include "obstacleSensorInterface.h"
 
 int d, f, l, r;
 unsigned int seed;
 
-void setUp(void)
-{
-    seed = time(NULL);
+void setUp(void) {
 }
 
-void tearDown(void)
-{
+void tearDown(void) {
     d = 0;
     f = 0;
     l = 0;
     r = 0;
-    
 }
 
 // dustLevel이 60 이하일 때 False(0) 반환하면 PASS
